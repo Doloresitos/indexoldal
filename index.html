@@ -186,25 +186,21 @@
 
         <div class="block-title">Feladatleírás</div>
         <div class="block-box">
-            Egymás mellett ládák állnak, mindegyikben alma (A) vagy körte (K) van. Minden ládában pontosan
-            az egyik fajta gyümölcs, és összesen ugyanannyi almás láda van, mint körtés.
-            Egy kamion balról jobbra végigmegy a ládasor mellett. Minden ládánál eldönthetjük,
-            hogy felrakjuk, vagy otthagyjuk. Először csak almás ládákat tehetünk fel, utána csak körtéseket,
-            és a felrakott almák és körték darabszáma legyen ugyanannyi.
+            Egymás mellé egy sorban lerakott ládákban alma, illetve körte van, minden ládában pontosan az egyik féle gyümölcs. Ugyanannyi ládában található alma, mint ahányban körte. Egy kamionnal kell elszállítanunk a ládákat. A kamion egy irányban tud végig menni a ládasor mellett. A kamionra pakolás során arról dönthetünk, hogy az aktuális ládát elvisszük a kamionnal, vagy nem visszük el.
             <br><br>
-            Kérdés: maximum hány ládát tudunk így felpakolni a kamionra?
+            A kamionra először almás ládákat kell pakolni, a körték csak ezután jöhetnek. Ugyanannyi almás ládát kell elvinni, mint amennyi körtét tartalmazót.
+            <br><br>
+            Készíts programot, amely megadja, hogy maximum hány ládát pakolhatunk fel így a kamionra!
         </div>
 
         <div class="block-title">Bemenet</div>
         <div class="block-box">
-            Az első sorban N, a ládák száma (páros, és legfeljebb 100&nbsp;000).<br>
-            A második sorban egy N hosszú szöveg, csak 'A' és 'K' karakterekkel: a ládák tartalma
-            balról jobbra.
+            A standard bemenet első sorában a ládák száma van (2N100000, N páros szám). A következő sorban a ládák tartalma van leírva, a ládák sorrendjében (N darab betű, a fele A, a fele K betű).
         </div>
 
         <div class="block-title">Kimenet</div>
         <div class="block-box">
-            Egyetlen szám: a maximálisan felrakható ládák száma.
+            A standard kimenet első sorába a maximális ládaszámot kell írni, amennyi a kamionra felpakolható!
         </div>
 
         <div class="block-title">Példa</div>
@@ -272,9 +268,8 @@ if __name__ == "__main__":
         <div class="block-title">Feladatleírás</div>
         <div class="block-box">
            Tekintsük a jól ismert Hanoi tornyai problémának azt a változatát, amikor a kezdeti játék-
-állásban és a cél játékállásban is a korongok tetsz®legesen helyezkedhetnek el, feltéve, hogy
-mindegyik nála nagyobb korongon van (vagy az alsó). A játék során egy lépésben egy ko-
-rongot mozgathatunk valamelyik torony tetejér®l egy másik torony tetejére, ha ott nálánál
+állásban és a cél játékállásban is a korongok tetszőlegesen helyezkedhetnek el, feltéve, hogy
+mindegyik nála nagyobb korongon van (vagy az alsó). A játék során egy lépésben egy korongot mozgathatunk valamelyik torony tetejéről egy másik torony tetejére, ha ott nálánál
 nagyobb korong van.
             <br><br>
            A feladat az, hogy rakjuk át egyesével mozgatva a korongokat, betartva, hogy korongot csak
@@ -286,8 +281,8 @@ lásból a cél játékállás keletkezik!
 
         <div class="block-title">Bemenet</div>
         <div class="block-box">
-           A standard bemenet els® három sora a kezdeti, a második három sora a cél játékállást
-tartalmazza, rendre az els® (1), a második (2) és harmadik (3) torony korongjait csökken®
+           A standard bemenet első három sora a kezdeti, a második három sora a cél játékállást
+tartalmazza, rendre az első  (1), a második (2) és harmadik (3) torony korongjait csökkenő
 sorrendben. Minden sort a 0 szám zárja (ami nem korong méret). Ha k szerepel valamelyik
 sorban, akkor minden k-nél kisebb szám is ott van valamelyik torony sorában.
 A legnagyobb korong mérete legfeljebb 16.
@@ -295,10 +290,10 @@ A legnagyobb korong mérete legfeljebb 16.
 
         <div class="block-title">Kimenet</div>
         <div class="block-box">
-            A standard kimenet Els® sora a végrehajtandó lépések számát tartalmazza. Minden további
+            A standard kimenet Első sora a végrehajtandó lépések számát tartalmazza. Minden további
 sor egy lépést adjon meg, amelyeket ebben a sorrendben végrehajtva a cél játékállás keletkezik!
-Egy lépést két egész szám adjon meg: Rol és Ra, (1  Rol;Ra  3 és Rol 6= Ra) ami azt
-jelenti, hogy a Rol torony tetején lév® korongot kell átrakni a Ra torony tetejére.
+gy lépést két egész szám adjon meg: Rol és Ra, (1 <= Rol;Ra <= 3 és Rol != Ra) ami azt
+jelenti, hogy a Rol torony tetején lévő korongot kell átrakni a Ra torony tetejére.
 Több megoldás esetén bármelyik megadható.
         </div>
 
@@ -386,7 +381,7 @@ if __name__ == "__main__":
 
         <div class="block-title">Kimenet</div>
         <div class="block-box">
-            A standard kimenet első sorába az elérhető legnagyobb bevételt kell írni! A második sorba kell írni a kiválasztott fesztiválokat! A sorban az első szám a fesztiválok száma legyen, ezt kövesse azoknak a fesztiváloknak a sorszámai (tetszőleges sorrendben), amelyek ütközés-mentesen meg-tarthatók és a legnagyobb bevételt eredményezik! Több megoldás esetén bármelyik megadható.
+            A standard kimenet első sorába az elérhető legnagyobb bevételt kell írni! A második sorba kell írni a kiválasztott fesztiválokat! A sorban az első szám a fesztiválok száma legyen, ezt kövesse azoknak a fesztiváloknak a sorszámai (tetszőleges sorrendben), amelyek ütközésmentesen megtarthatók és a legnagyobb bevételt eredményezik! Több megoldás esetén bármelyik megadható.
         </div>
 
         <div class="block-title">Példa</div>
@@ -507,16 +502,18 @@ if __name__ == "__main__":
 
         <div class="block-title">Feladatleírás</div>
         <div class="block-box">
-            Egy hegyoldalon lévő sípályán minden választható lesiklási útvonal a start ponttól a célpontig ve-zet. A pálya elágazási pontokat tartalmaz, csak ilyen pontokon lehet a lesiklás során pályaszakaszt váltani. Két elágazási pont közötti részt nevezzük pályaszakasznak. Minden verseny előtt a szer-vezők ellenőrzik a pálya alkalmasságát. Ebből a célból ellenőrök mennek végig a pályán. Minden ellenőr a start ponttól indul és végig megy egy útvonalon a célpontig. Az a cél, hogy a legkevesebb ellenőrt kelljen alkalmazni ahhoz, hogy minden pályaszakaszon áthaladjon legalább egy ellenőr.
+            Egy hegyoldalon lévő sípályán minden választható lesiklási útvonal a start ponttól a célpontig vezet. A pálya elágazási pontokat tartalmaz, csak ilyen pontokon lehet a lesiklás során pályaszakaszt váltani. Két elágazási pont közötti részt nevezzük pályaszakasznak. Minden verseny előtt a szervezők ellenőrzik a pálya alkalmasságát. Ebből a célból ellenőrök mennek végig a pályán. Minden ellenőr a start ponttól indul és végig megy egy útvonalon a célpontig. 
+            Az a cél, hogy a legkevesebb ellenőrt kelljen alkalmazni ahhoz, hogy minden pályaszakaszon áthaladjon legalább egy ellenőr.
             <br><br>
-           A pálya olyan, hogy a térképe lerajzolható úgy, hogy bármely két pályaszakasz nem metszi egy-mást (nincs sem alagút, sem felüljáró), csak elágazási pontban lehet közös pontjuk. Két elágazási pont között legfeljebb egy pályaszakasz van. Minden pályaszakaszon csak egyirányban lehet lesik-lani, a magasabban lévő pontból az alacsonyabban lévő pont felé. Bármely elágazási pont elérhető a start pontból és bármely elágazási pontból el lehet jutni a célpontba.
+           A pálya olyan, hogy a térképe lerajzolható úgy, hogy bármely két pályaszakasz nem metszi egymást (nincs sem alagút, sem felüljáró), csak elágazási pontban lehet közös pontjuk. Két elágazási pont között legfeljebb egy pályaszakasz van. Minden pályaszakaszon csak egyirányban lehet lesiklani, a magasabban lévő pontból az alacsonyabban lévő pont felé. Bármely elágazási pont elérhető a start pontból és bármely elágazási pontból el lehet jutni a célpontba.
             <br><br>
             Készíts programot, amely kiszámítja, hogy legkevesebb hány ellenőrt kell alkalmazni!
         </div>
 
         <div class="block-title">Bemenet</div>
         <div class="block-box">
-            A standard bemenet első sorában az elágazási pontok száma (1≤N≤20000) van. Az el-ágazási pontokat az 1,…,N számokkal azonosítjuk, a start pont azonosítója az 1, a célponté N. A további N-1 sor közül az i-edik az i-edik elágazási pontból induló pályaszakaszokat adja meg Nyugatról Kelet felé haladó sorrendben. A sorban az első szám a pontból induló pályaszakaszok száma, ezt követik azon elágazási pontok sorszámai, ahova a pályaszakasz vezet.
+            A standard bemenet első sorában az elágazási pontok száma (1≤N≤20000) van. Az elágazási pontokat az 1,…,N számokkal azonosítjuk, a start pont azonosítója az 1, a célponté N. A további N-1 sor közül az i-edik az i-edik elágazási pontból induló pályaszakaszokat adja meg Nyugatról Kelet felé haladó sorrendben. 
+            A sorban az első szám a pontból induló pályaszakaszok száma, ezt követik azon elágazási pontok sorszámai, ahova a pályaszakasz vezet.
         </div>
 
         <div class="block-title">Kimenet</div>
