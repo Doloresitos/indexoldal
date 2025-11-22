@@ -6,11 +6,11 @@
     <title>Problémamegoldó szeminárium – feladatok</title>
     <style>
         :root {
-            --bg-gradient-start: #4f46e5;
-            --bg-gradient-end: #7c3aed;
+            --bg-gradient-start: #f97316;  /* narancs */
+            --bg-gradient-end: #22c55e;    /* zöld */
             --card-bg: #ffffff;
-            --accent: #f97316;
-            --text-main: #111827;
+            --accent: #16a34a;
+            --text-main: #1f2933;
             --text-muted: #6b7280;
             --code-bg: #111827;
         }
@@ -46,7 +46,7 @@
             left: 0;
             right: 0;
             backdrop-filter: blur(12px);
-            background: linear-gradient(to right, rgba(15,23,42,0.88), rgba(30,64,175,0.85));
+            background: linear-gradient(to right, rgba(124,45,18,0.9), rgba(21,128,61,0.9));
             border-bottom: 1px solid rgba(148,163,184,0.4);
             z-index: 20;
         }
@@ -65,7 +65,7 @@
             letter-spacing: 0.04em;
             font-size: 0.95rem;
             text-transform: uppercase;
-            color: #e5e7eb;
+            color: #f1f5f9;
         }
 
         .brand span {
@@ -80,7 +80,7 @@
 
         .nav-links a {
             font-size: 0.9rem;
-            color: #e5e7eb;
+            color: #f9fafb;
             text-decoration: none;
             padding: 6px 10px;
             border-radius: 999px;
@@ -110,8 +110,8 @@
 
         .hero p {
             font-size: 0.95rem;
-            color: #e5e7eb;
-            opacity: 0.9;
+            color: #f9fafb;
+            opacity: 0.95;
         }
 
         .hero-tag {
@@ -119,7 +119,7 @@
             margin-top: 14px;
             padding: 6px 14px;
             border-radius: 999px;
-            background: rgba(15,23,42,0.75);
+            background: rgba(15,23,42,0.7);
             border: 1px solid rgba(148,163,184,0.7);
             font-size: 0.8rem;
             color: #e5e7eb;
@@ -140,7 +140,7 @@
             border-radius: 18px;
             padding: 20px 18px 18px;
             color: var(--text-main);
-            box-shadow: 0 16px 35px rgba(15,23,42,0.45);
+            box-shadow: 0 16px 35px rgba(15,23,42,0.35);
             position: relative;
             overflow: hidden;
         }
@@ -149,7 +149,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at top right, rgba(129,140,248,0.25), transparent 55%);
+            background: radial-gradient(circle at top right, rgba(250,204,21,0.2), transparent 60%);
             pointer-events: none;
         }
 
@@ -171,8 +171,8 @@
             font-size: 0.75rem;
             padding: 3px 9px;
             border-radius: 999px;
-            background: rgba(59,130,246,0.1);
-            color: #1d4ed8;
+            background: rgba(251,146,60,0.15);
+            color: #c2410c;
             margin-bottom: 8px;
         }
 
@@ -189,7 +189,7 @@
             font-size: 0.85rem;
             font-weight: 600;
             cursor: pointer;
-            background: #111827;
+            background: #1f2937;
             color: #f9fafb;
             transition: transform 0.15s, box-shadow 0.15s;
         }
@@ -202,11 +202,11 @@
         /* ---------- TASK SECTIONS ---------- */
 
         .task-section {
-            background: rgba(15,23,42,0.92);
+            background: rgba(15,23,42,0.9);
             border-radius: 18px;
             padding: 26px 22px 20px;
             margin-bottom: 26px;
-            box-shadow: 0 18px 40px rgba(15,23,42,0.65);
+            box-shadow: 0 18px 40px rgba(15,23,42,0.7);
         }
 
         .task-header {
@@ -255,24 +255,9 @@
             margin-bottom: 6px;
         }
 
-        .pill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 8px;
-        }
-
-        .pill {
-            font-size: 0.8rem;
-            padding: 4px 9px;
-            border-radius: 999px;
-            background: rgba(31,41,55,0.9);
-            border: 1px solid rgba(148,163,184,0.7);
-        }
-
         details {
             margin-top: 12px;
-            background: rgba(15,23,42,0.9);
+            background: rgba(15,23,42,0.92);
             border-radius: 10px;
             border: 1px solid rgba(148,163,184,0.6);
             padding: 10px 12px;
@@ -316,7 +301,7 @@
         .footer {
             text-align: center;
             font-size: 0.8rem;
-            color: #e5e7eb;
+            color: #f9fafb;
             opacity: 0.8;
             margin-top: 8px;
             padding-bottom: 10px;
@@ -345,10 +330,10 @@
             Problémamegoldó <span>szeminárium</span>
         </div>
         <div class="nav-links">
-            <a href="#gyumolcs">Keresés / gyümölcs</a>
-            <a href="#hanoi">Rekurzió / Hanoi</a>
-            <a href="#fesztival">DP / Fesztivál</a>
-            <a href="#sipalya">Gráf / Sípálya</a>
+            <a href="#gyumolcs">Keresés, rendezés</a>
+            <a href="#hanoi">Rekurzió</a>
+            <a href="#fesztival">Dinamikus programozás</a>
+            <a href="#sipalya">Fa- és gráfalgoritmus</a>
         </div>
     </div>
 </nav>
@@ -359,7 +344,7 @@
         <h1>Problémamegoldó szeminárium – feladatmegoldások</h1>
         <p>ITLA8102g-2025/26/1-ITLA8102g</p>
         <div class="hero-tag">
-            Rekurzió • Dinamikus programozás • Keresés, rendezés • Gráfalgoritmusok
+            Keresés és rendezés • Rekurzió • Dinamikus programozás • Gráfalgoritmusok
         </div>
     </section>
 
@@ -369,8 +354,8 @@
             <div class="card-header-line"></div>
             <span class="badge">Keresés, rendezés</span>
             <h2>Legtöbb gyümölcs</h2>
-            <p>Egydimenziós tömb, prefix–suffix vizsgálat, lineáris optimalizálás: hány almát és
-                körtét tudunk felpakolni egy irányban haladva.</p>
+            <p>Egydimenziós tömb, ahol meg kell találnunk, hány almát és körtét tudunk felpakolni,
+                ha először csak almákat, utána csak körtéket vihetünk el.</p>
             <button onclick="document.getElementById('gyumolcs').scrollIntoView({behavior:'smooth'})">
                 Ugrás a megoldásra
             </button>
@@ -380,8 +365,8 @@
             <div class="card-header-line"></div>
             <span class="badge">Rekurzió</span>
             <h2>Hanoi tornyai variáns</h2>
-            <p>Általánosított kiinduló- és célállás, visszalépéses rekurzióval keressük a
-                lépéssorozatot, amely átviszi a korongokat.</p>
+            <p>Nem csak az a cél, hogy az összes korong egy toronyról a másikra kerüljön,
+                hanem tetszőleges kezdeti és céltornyok közötti átrendezést kell elérni.</p>
             <button onclick="document.getElementById('hanoi').scrollIntoView({behavior:'smooth'})">
                 Ugrás a megoldásra
             </button>
@@ -391,8 +376,8 @@
             <div class="card-header-line"></div>
             <span class="badge">Dinamikus programozás</span>
             <h2>Fesztivál</h2>
-            <p>Súlyozott intervallumkiválasztási probléma: ütközésmentes fesztiválok maximális
-                összbevételét keressük DP és rendezés segítségével.</p>
+            <p>Ütközésmentes fesztiválokat kell kiválasztani úgy, hogy az összbevétel a lehető
+                legnagyobb legyen.</p>
             <button onclick="document.getElementById('fesztival').scrollIntoView({behavior:'smooth'})">
                 Ugrás a megoldásra
             </button>
@@ -402,83 +387,62 @@
             <div class="card-header-line"></div>
             <span class="badge">Gráfalgoritmus</span>
             <h2>Sípálya</h2>
-            <p>Irányított aciklikus gráf, útlefedés: legkevesebb ellenőrrel szeretnénk lefedni
-                az összes pályaszakaszt.</p>
+            <p>A pálya elágazási pontokból és pályaszakaszokból áll. Meg kell mondani, minimum hány
+                ellenőrrel tudjuk végigjárni az összes szakaszt.</p>
             <button onclick="document.getElementById('sipalya').scrollIntoView({behavior:'smooth'})">
                 Ugrás a megoldásra
             </button>
         </article>
     </section>
 
-    <!-- TASK SECTIONS -->
-
     <!-- Legtöbb gyümölcs -->
     <section id="gyumolcs" class="task-section">
         <div class="task-header">
             <div class="task-title">Legtöbb gyümölcs</div>
-            <div class="task-tag">Keresés, rendezés – prefix és suffix vizsgálat</div>
+            <div class="task-tag">Keresés, rendezés – egyszerű tömbös megoldás</div>
         </div>
 
         <div class="task-grid">
             <div class="task-col">
-                <h3>Feladat lényege (röviden)</h3>
+                <h3>Feladat röviden</h3>
                 <p>
-                    Egy sorban almás és körtés ládák állnak, ugyanannyi almás láda van, mint körtés.
-                    A kamion egy irányban halad végig a ládasor mellett, és minden pozíciónál eldönthetjük,
-                    felvesszük-e az adott ládát. Először csak almákat pakolhatunk, utána csak körtéket, és
-                    az elvitt almás és körtés ládák számának meg kell egyeznie. A cél a felpakolt ládák
-                    számának maximalizálása.
+                    Egy sorban N láda áll. Mindegyikben alma (A) vagy körte (K) van, és ugyanannyi almás,
+                    mint körtés láda van. A kamion balról jobbra halad. Minden ládánál döntünk, hogy
+                    felrakjuk-e. Először almákat rakhatunk fel, utána körtéket, és a felrakott almák és
+                    körték darabszáma legyen ugyanannyi. A cél, hogy minél több ládát vigyünk el.
                 </p>
 
                 <details>
-                    <summary><span class="summary-marker">▶</span>Feladat szövege (idézet / összefoglalás)</summary>
+                    <summary><span class="summary-marker">▶</span>Megoldás ötlete</summary>
                     <p style="margin-top:6px;">
-                        Ide másolhatod be rövidebben vagy pontosabban a versenyfeladat leírását, ha szeretnéd.
-                    </p>
-                </details>
-
-                <details>
-                    <summary><span class="summary-marker">▶</span>Megoldási ötlet – algoritmus</summary>
-                    <p style="margin-top:6px;">
-                        – Végigmegyünk a tömbön, és kiszámítjuk, hogy az első i ládában hány „A” (alma) van:
-                        <code>prefixA[i]</code>.<br>
-                        – Hátulról számolhatjuk, hogy az i+1..N tartományban hány „K” (körte) van:
-                        <code>suffixK[i]</code>.<br>
-                        – Olyan i indexet keresünk, ahol <code>prefixA[i] == suffixK[i]</code>. A maximális X esetén
-                        a felpakolható ládák száma <code>2 * X</code>.<br>
-                        – Az algoritmus végigpásztázása lineáris, ezért a futásidő <code>O(N)</code>.
+                        A lényeg, hogy valahol „elvágjuk” a sort: eddig almákat veszünk fel, utána körtéket.
+                        <br><br>
+                        – Számoljuk meg, hogy az első i pozícióig hány A van (ezt hívjuk
+                        <code>prefixA[i]</code>-nek).<br>
+                        – Hátulról számoljuk meg, hogy az i+1..N tartományban hány K van
+                        (<code>suffixK[i+1]</code>).<br>
+                        – Ha ezek egyenlők, akkor ennyi almát és ennyi körtét tudunk felszedni.
+                          A felrakott ládák száma ekkor <code>2 * prefixA[i]</code>.<br>
+                        – Végigpróbáljuk az összes lehetséges i-t, és kiválasztjuk azt, ahol ez a szám
+                          a legnagyobb.
                     </p>
                 </details>
             </div>
 
             <div class="task-col">
-                <h3>Fogalmak, kulcspontok</h3>
-                <ul>
-                    <li>prefixösszeg (darabszámok tárolása)</li>
-                    <li>suffixösszeg (hátralévő körték száma)</li>
-                    <li>lineáris keresés egyenlőségre</li>
-                </ul>
-
-                <div class="pill-list">
-                    <span class="pill">tömb</span>
-                    <span class="pill">lineáris algoritmus</span>
-                    <span class="pill">O(N) idő</span>
-                </div>
-
-                <details open>
-                    <summary><span class="summary-marker">▶</span>Kódvázlat (pszeudokód / nyelv)</summary>
-                    <code>
-// például pszeudokód:
-
+                <h3>Egyszerű pszeudokód</h3>
+                <code>
 read N
-read S (hossz N, 'A' és 'K')
+read S[1..N]  // 'A' és 'K' karakterek
 
+// hány almát láttunk eddig
 prefixA[0] = 0
 for i = 1..N:
     prefixA[i] = prefixA[i-1] + (S[i] == 'A' ? 1 : 0)
 
+// hány körtét látunk jobbról
 suffixK[N+1] = 0
-for i = N down to 1:
+for i = N downTo 1:
     suffixK[i] = suffixK[i+1] + (S[i] == 'K' ? 1 : 0)
 
 best = 0
@@ -487,8 +451,12 @@ for i = 1..N-1:
         best = max(best, 2 * prefixA[i])
 
 print best
-                    </code>
-                </details>
+                </code>
+                <p style="margin-top:8px;">
+                    Időigény: végig csak egyszer megyünk végig a soron, ezért
+                    nagyjából <strong>O(N)</strong>. Tárigény: néhány tömb, szintén
+                    <strong>O(N)</strong>.
+                </p>
             </div>
         </div>
     </section>
@@ -502,50 +470,41 @@ print best
 
         <div class="task-grid">
             <div class="task-col">
-                <h3>Feladat lényege</h3>
+                <h3>Feladat röviden</h3>
                 <p>
-                    A klasszikus Hanoi-problémát általánosítjuk: a kezdeti és a célállásban is szabadon
-                    helyezkedhetnek el a korongok a három tornyon, amennyiben mindenhol érvényes a
-                    „kisebb a nagyobbon” szabály. Egy lépésben a forrás torony tetejéről áthelyezünk egy
-                    korongot egy másik torony tetejére, ha ott nála nagyobb korong van. Feladat: adjunk meg
-                    egy lépéssorozatot, amely a kiinduló konfigurációból a célig eljuttatja a játékot.
+                    A klasszikus Hanoi-tornyok feladatban az összes korong egy toronyról egy másikra
+                    kerül. Ebben a változatban a kezdeti és a célállás is tetszőleges: a korongok
+                    szét lehetnek szórva a három torony között, csak a méret szerinti sorrendnek kell
+                    mindenhol stimmelnie. A feladat az, hogy lépésről lépésre eljussunk a kívánt
+                    végállásig.
                 </p>
 
                 <details>
                     <summary><span class="summary-marker">▶</span>Rekurzív gondolkodás</summary>
                     <p style="margin-top:6px;">
-                        – A legnagyobb korong elhelyezkedése meghatározza, melyik tornyot kell
-                        „kiüríteni” fölüle.<br>
-                        – A felette lévő kisebb korongokat rekurzívan áthelyezzük egy segédtoronyra.<br>
-                        – Ezután mozgatjuk a legnagyobb korongot a helyes toronyra.<br>
-                        – Végül a segédtoronyról a végső helyre mozgatjuk vissza a kisebbeket.<br>
-                        – A variánsban a kiinduló és célkonfigurációk tetszőlegesek, ezért az általános
-                          rekurzív „forrás–cél–segéd” szerepek dinamikusan változnak.
+                        – Mindig azt nézzük, hogy a legnagyobb korong hol van most, és hova kell a végén kerülnie.<br>
+                        – Ha útban vannak felette kisebb korongok, azokat először átmozgatjuk egy másik toronyra
+                          (rekurzívan).<br>
+                        – Ezután átvisszük a legnagyobb korongot a helyére.<br>
+                        – Végül a félretett kisebb korongokat visszavisszük fölé a megfelelő tornyokra.
+                        <br><br>
+                        A valós programban a toronyállásokat listákkal/tömbökkel ábrázoljuk, és egy rekurzív
+                        függvény adja meg a lépéssorozatot.
                     </p>
                 </details>
             </div>
 
             <div class="task-col">
-                <h3>Eszközök</h3>
-                <ul>
-                    <li>rekurzív függvények</li>
-                    <li>állapot reprezentációja (tornyok listái / tömbjei)</li>
-                    <li>lépések kiírása</li>
-                </ul>
-
-                <div class="pill-list">
-                    <span class="pill">rekurzió</span>
-                    <span class="pill">backtracking</span>
-                </div>
-
-                <details open>
-                    <summary><span class="summary-marker">▶</span>Kódvázlat helye</summary>
-                    <code>
-// Itt lehet majd egy konkrét rekurzív implementáció (pl. Python / C++ / Java)
-// függvényekkel: moveTower(n, from, to, aux), illetve
-// kezelheted általánosabb állapottér-keresésként is.
-                    </code>
-                </details>
+                <h3>Egyszerű kódvázlat helye</h3>
+                <code>
+// itt tudod majd bemutatni a saját rekurzív megoldásodat,
+// például Pythonban vagy C++-ban
+// moveTower(n, source, target, helper) jellegű függvénnyel
+                </code>
+                <p style="margin-top:8px;">
+                    Itt főleg a rekurzió működését szeretnéd megmutatni, nem az optimális lépésszám
+                    bizonyítását.
+                </p>
             </div>
         </div>
     </section>
@@ -559,47 +518,49 @@ print best
 
         <div class="task-grid">
             <div class="task-col">
-                <h3>Feladat lényege</h3>
+                <h3>Feladat röviden</h3>
                 <p>
-                    Adott N fesztivál, mindegyikről ismerjük a kezdő- és zárónapot és a várható
-                    bevételt. Egy időben csak egy fesztivál tartható, azaz az intervallumok nem
-                    fedhetik egymást. Olyan fesztiválhalmazt keresünk, amely ütközésmentes és
-                    a bevétel összege maximális.
+                    Több fesztivál szeretne helyet kapni egy városban. Mindegyikről ismert a kezdő- és
+                    zárónap, valamint a bevétel. Egy időben csak egy fesztivál lehet, ezért az
+                    időintervallumok nem fedhetik egymást. Olyan fesztiválokat kell kiválasztani,
+                    hogy ne ütközzenek, és a bevételek összege minél nagyobb legyen.
                 </p>
 
                 <details>
-                    <summary><span class="summary-marker">▶</span>DP ötlet</summary>
+                    <summary><span class="summary-marker">▶</span>Dinamikus programozás ötlete</summary>
                     <p style="margin-top:6px;">
-                        – Rendezzük a fesztiválokat a zárónapjuk szerint.<br>
-                        – Minden i-hez keressük meg az utolsó olyan j&lt;i indexet, amelynek fesztiválja
-                          nem ütközik az i.-vel (pl. bináris kereséssel). Jelöljük <code>p[i]</code>-vel.<br>
-                        – DP definíció: <code>dp[i] = max(dp[i-1], profit[i] + dp[p[i]])</code>.<br>
-                        – A megoldás rekonstruálható visszalépkedéssel az, hogy a <code>dp</code> melyik ága volt nagyobb.
+                        – Rendezés: rendezzük a fesztiválokat a befejezési napjuk szerint.<br>
+                        – Minden fesztiválhoz megkeressük, mi az utolsó olyan fesztivál,
+                          amelyik még nem ütközik vele.<br>
+                        – <strong>DP állapot:</strong> <code>dp[i]</code> = a legnagyobb elérhető bevétel, ha az
+                          első i fesztivált nézzük.<br>
+                        – <strong>Átmenet:</strong> vagy kihagyjuk az i.-et, vagy kiválasztjuk:<br>
+                          <code>dp[i] = max(dp[i-1], profit[i] + dp[p[i]])</code>, ahol
+                          <code>p[i]</code> az utolsó nem ütköző fesztivál indexe.<br>
+                        – A végeredmény <code>dp[N]</code>.
                     </p>
                 </details>
             </div>
 
             <div class="task-col">
-                <h3>Kulcspontok és komplexitás</h3>
-                <ul>
-                    <li>intervallumok rendezése végpont szerint</li>
-                    <li>bináris keresés az utolsó nem ütköző intervallumra</li>
-                    <li>DP: optimalizálás előző döntések alapján</li>
-                </ul>
+                <h3>Rövid kódvázlat</h3>
+                <code>
+// datastructure: festivals sorted by end time
+// p[i] = index of last festival that does not overlap with i
 
-                <div class="pill-list">
-                    <span class="pill">O(N log N) idő</span>
-                    <span class="pill">O(N) tár</span>
-                    <span class="pill">intervallum DP</span>
-                </div>
+dp[0] = 0
+for i = 1..N:
+    dp[i] = max(
+        dp[i-1],                  // i. fesztivált nem választjuk
+        profit[i] + dp[p[i]]      // i. fesztivált választjuk
+    )
 
-                <details open>
-                    <summary><span class="summary-marker">▶</span>Kódvázlat (pl. Python)</summary>
-                    <code>
-# tempos pszeudokód / Python-szerű megoldás helye
-# itt majd bemutathatod a teljes DP-algoritmust
-                    </code>
-                </details>
+print dp[N]
+                </code>
+                <p style="margin-top:8px;">
+                    A rendezés és a bináris keresések miatt a futásidő nagyjából
+                    <strong>O(N log N)</strong>, a tárolt adatok miatt a tárigény <strong>O(N)</strong>.
+                </p>
             </div>
         </div>
     </section>
@@ -613,54 +574,46 @@ print best
 
         <div class="task-grid">
             <div class="task-col">
-                <h3>Feladat lényege</h3>
+                <h3>Feladat röviden</h3>
                 <p>
-                    A sípálya elágazási pontokból és közöttük húzódó, egyirányú pályaszakaszokból áll.
-                    A startpontból bármelyik elágazási ponthoz, onnan a célpontba el lehet jutni.
-                    Annyi ellenőrt küldünk le, ahány különböző útvonalat választunk; minden ellenőr a
-                    starttól a célig megy. Meg kell határozni, legkevesebb hány ellenőr szükséges ahhoz,
-                    hogy mindegyik pályaszakaszon legalább egy ellenőr áthaladjon.
+                    A sípálya elágazási pontokból áll, közöttük egyirányú pályaszakaszok futnak. A
+                    startpontból minden ponthoz el lehet jutni, és minden pontból el lehet jutni a
+                    célpontba. Minden ellenőr a starttól a célig lecsúszik egy útvonalon. Azt kell
+                    kiszámítani, minimum hány ellenőr kell ahhoz, hogy minden pályaszakaszon legalább
+                    egy ellenőr átmenjen.
                 </p>
 
                 <details>
-                    <summary><span class="summary-marker">▶</span>Gráfmodell és gondolkodás</summary>
+                    <summary><span class="summary-marker">▶</span>Gondolkodás gráfként</summary>
                     <p style="margin-top:6px;">
-                        – A pálya egy irányított aciklikus gráf (DAG): csúcsok az elágazási pontok,
-                          élek a pályaszakaszok.<br>
-                        – Minden ellenőr egy start→cél útvonal egy útlefedésben.<br>
-                        – A feladat a minimális útlefedés egy speciális DAG-on; a megoldás
-                          az indegree/outdegree mintázatok és az elágazási pontok vizsgálatán alapul.
+                        – A pontokat csúcsoknak, a pályaszakaszokat éleknek tekintjük.<br>
+                        – Mivel mindig lefelé haladunk, nincsenek körök, ezért a gráf „egyszerűen
+                          bejárható”.<br>
+                        – Az útvonalakat úgy kell megválasztani, hogy ezek együtt lefedjék az összes élt,
+                          miközben az útvonalak száma (tehát az ellenőrök száma) minél kisebb legyen.<br>
+                        – A konkrét megoldásodban bemutathatod, hogyan számolod ki ezt például egy
+                          bejárással és fokszámok vizsgálatával.
                     </p>
                 </details>
             </div>
 
             <div class="task-col">
-                <h3>Alkalmazott fogalmak</h3>
-                <ul>
-                    <li>irányított aciklikus gráf (DAG)</li>
-                    <li>útlefedés / path cover</li>
-                    <li>topológiai rendezés, be- és kimenő fokok</li>
-                </ul>
-
-                <div class="pill-list">
-                    <span class="pill">gráf</span>
-                    <span class="pill">DAG</span>
-                    <span class="pill">útlefedés</span>
-                </div>
-
-                <details open>
-                    <summary><span class="summary-marker">▶</span>Kódvázlat helye</summary>
-                    <code>
-// ide jöhet a konkrét megoldásod (pl. C++ / Java / Python),
-// topológiai rendezéssel és az útlefedéshez szükséges számításokkal
-                    </code>
-                </details>
+                <h3>Kódvázlat helye</h3>
+                <code>
+// ide kerülhet majd a konkrét megoldásod,
+// pl. a gráf beolvasása és a szükséges ellenőrök
+// számának kiszámítása
+                </code>
+                <p style="margin-top:8px;">
+                    Itt elsősorban azt szeretnéd megmutatni, hogyan lehet egy valós problémát
+                    gráffal modellezni, és ebből következtetni a megoldásra.
+                </p>
             </div>
         </div>
     </section>
 
     <div class="footer">
-        Problémamegoldó szeminárium – bemutató oldal. A kód és magyarázatok oktatási célra készültek.
+        Problémamegoldó szeminárium – Szalatnyai Dorka
     </div>
 
 </div>
