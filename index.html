@@ -2,323 +2,226 @@
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Problémamegoldó szeminárium – feladatok</title>
-
+    <title>Problémamegoldó szeminárium – OKTV feladatok</title>
     <style>
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
-            background: #e5dfc8; /* kicsit sötétebb, melegebb háttér */
-            color: #1f2933;
-        }
-
-        .top-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: #283618; /* mély zöld */
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #fefae0;
-            z-index: 10;
-        }
-
-        .nav-links a {
-            color: #fefae0;
-            text-decoration: none;
-            margin-left: 15px;
-            font-size: 0.9rem;
-            background: #606c38; /* olívazöld */
-            padding: 6px 12px;
-            border-radius: 6px;
-        }
-
-        .nav-links a:hover {
-            background: #bc6c25; /* narancsbarna */
-        }
-
-        .container {
-            max-width: 1100px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 100px 20px 40px;
+            padding: 20px;
+            line-height: 1.5;
+            background-color: #f5f5f5;
+        }
+
+        header, footer {
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         h1 {
-            text-align: center;
-            margin-bottom: 10px;
-            color: #283618;
-        }
-
-        .hero-sub {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #606c38;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .card {
-            background: #f9f4e4;
-            border: 1px solid #d9cfaa;
-            padding: 20px;
-            border-radius: 12px;
-        }
-
-        .card h2 {
-            margin-top: 0;
-            color: #bc6c25;
-            font-size: 1.2rem;
-        }
-
-        .card button {
-            margin-top: 10px;
-            padding: 8px 12px;
-            border: none;
-            background: #283618;
-            color: #fefae0;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
-
-        .card button:hover {
-            background: #1f2933;
-        }
-
-        .task-section {
-            background: #fffaf0;
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid #d9cfaa;
-            margin-bottom: 30px;
-        }
-
-        .task-section h2 {
-            margin-top: 0;
-            color: #bc6c25;
-        }
-
-        .block-title {
-            font-size: 1.1rem;
-            font-weight: bold;
-            margin-top: 20px;
             margin-bottom: 5px;
-            color: #283618;
         }
 
-        .block-box {
-            background: #fff7ec;
-            border: 1px solid #e2d9b3;
-            padding: 12px;
-            border-radius: 8px;
+        .info {
             font-size: 0.95rem;
-            color: #3b3b3b;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        nav {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 4px;
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            border: 1px solid #555;
+            font-size: 0.9rem;
+            background-color: #fafafa;
+        }
+
+        section {
+            background-color: #ffffff;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            box-shadow: 0 0 4px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        h3 {
+            margin-bottom: 6px;
         }
 
         pre {
-            background: #111827;
-            color: #e5e7eb;
+            background-color: #272822;
+            color: #f8f8f2;
             padding: 10px;
-            border-radius: 6px;
             overflow-x: auto;
-            font-family: "Consolas", "Courier New", monospace;
+            border-radius: 4px;
             font-size: 0.9rem;
+        }
+
+        code {
+            font-family: Consolas, "Courier New", monospace;
+        }
+
+        ol {
+            margin-top: 5px;
+        }
+
+        img {
+            max-width: 100%;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        footer {
+            font-size: 0.85rem;
+            color: #777;
+            margin-top: 30px;
         }
     </style>
 </head>
 <body>
 
-<!-- NAV -->
-<div class="top-nav">
-    <div class="brand">Problémamegoldó szeminárium</div>
-    <div class="nav-links">
-        <a href="#gyumolcs">Keresés</a>
-        <a href="#hanoi">Rekurzió</a>
-        <a href="#fesztival">Dinamikus programozás</a>
-        <a href="#sipalya">Gráfalgoritmusok</a>
+<header>
+    <h1>Problémamegoldó szeminárium – OKTV feladatok</h1>
+    <div class="info">
+        Név: Név helye<br>
+        Szegedi Tudományegyetem – TTIK<br>
+        2025–2026. tanév, őszi félév
     </div>
-</div>
+    <p>Az oldalon négy versenyfeladat egyszerű Python megoldása és rövid magyarázata látható.</p>
+</header>
 
-<div class="container">
+<nav>
+    <a href="#fesztival">1. Fesztivál</a>
+    <a href="#hanoi">2. Hanoi tornyai variáns</a>
+    <a href="#gyumolcs">3. Legtöbb gyümölcs</a>
+    <a href="#sipalya">4. Sípálya</a>
+</nav>
 
-    <!-- HEADER -->
-    <h1>Feladatmegoldások</h1>
-    <p class="hero-sub">ITLA8102g – 2025/26/1</p>
+<!-- 1. FELADAT: FESZTIVÁL -->
+<section id="fesztival">
+    <h2>1. feladat – Fesztivál</h2>
 
-    <!-- CARDS -->
-    <div class="cards-grid">
-        <div class="card">
-            <h2>Keresés, rendezés</h2>
-            <p>Legtöbb gyümölcs</p>
-            <button onclick="location.href='#gyumolcs'">Megnyitás</button>
-        </div>
-        <div class="card">
-            <h2>Rekurzió</h2>
-            <p>Hanoi tornyai variáns (alapváltozat bemutatása)</p>
-            <button onclick="location.href='#hanoi'">Megnyitás</button>
-        </div>
-        <div class="card">
-            <h2>Dinamikus programozás</h2>
-            <p>Fesztivál</p>
-            <button onclick="location.href='#fesztival'">Megnyitás</button>
-        </div>
-        <div class="card">
-            <h2>Fa- és gráfalgoritmusok</h2>
-            <p>Sípálya</p>
-            <button onclick="location.href='#sipalya'">Megnyitás</button>
-        </div>
-    </div>
+    <h3>Feladatleírás</h3>
+    <p>Egy városban N fesztiválra jelentkeztek be rendezők. Mindegyikről tudjuk, hogy mettől meddig
+        tervezik tartani és mennyi bevételt remélnek tőle. Egy időben csak egy fesztivál tarthatnak.
+        Írj programot, amely megadja, hogy mekkora az elérhető legnagyobb bevétel.</p>
 
-    <!-- ============================= -->
-    <!--           GYÜMÖLCS           -->
-    <!-- ============================= -->
-    <section class="task-section" id="gyumolcs">
-        <h2>Legtöbb gyümölcs – Keresés, rendezés</h2>
+    <p>Bemenet: a standard bemenet első sorában a fesztiválok száma van (1 ≤ N ≤ 100 000).
+        A következő N sorban egy-egy fesztivál első napja, utolsó napja (1 ≤ Elsői ≤ Utolsói ≤ 100 000)
+        és a várt bevétele (1 ≤ Bevételi ≤ 10 000) található.</p>
 
-        <div class="block-title">Feladatleírás</div>
-        <div class="block-box">
-            Egymás mellé egy sorban lerakott ládákban alma, illetve körte van, minden ládában pontosan az egyik féle gyümölcs. Ugyanannyi ládában található alma, mint ahányban körte. Egy kamionnal kell elszállítanunk a ládákat. A kamion egy irányban tud végig menni a ládasor mellett. A kamionra pakolás során arról dönthetünk, hogy az aktuális ládát elvisszük a kamionnal, vagy nem visszük el.
-            <br><br>
-            A kamionra először almás ládákat kell pakolni, a körték csak ezután jöhetnek. Ugyanannyi almás ládát kell elvinni, mint amennyi körtét tartalmazót.
-            <br><br>
-            Készíts programot, amely megadja, hogy maximum hány ládát pakolhatunk fel így a kamionra!
-        </div>
+    <p>Kimenet: a standard kimenet első sorába az elérhető legnagyobb bevételt kell írni.
+        A második sorba kell írni a kiválasztott fesztiválokat: a sorban az első szám a fesztiválok
+        száma legyen, ezt kövesse azoknak a fesztiváloknak a sorszámai (tetszőleges sorrendben),
+        amelyek ütközésmentesen megtarthatók és a legnagyobb bevételt eredményezik.
+        Több megoldás esetén bármelyik megadható.</p>
 
-        <div class="block-title">Bemenet</div>
-        <div class="block-box">
-            A standard bemenet első sorában a ládák száma van (2N100000, N páros szám). A következő sorban a ládák tartalma van leírva, a ládák sorrendjében (N darab betű, a fele A, a fele K betű).
-        </div>
+    <h3>Példa bemenet és kimenet</h3>
+    <pre><code>Bemenet
+4
+2 5 100
+1 3 60
+5 6 50
+4 5 30
 
-        <div class="block-title">Kimenet</div>
-        <div class="block-box">
-            A standard kimenet első sorába a maximális ládaszámot kell írni, amennyi a kamionra felpakolható!
-        </div>
+Kimenet
+110
+2 3 2</code></pre>
 
-        <div class="block-title">Példa</div>
-        <div class="block-box">
-            <strong>Bemenet:</strong>
-            <pre>8
-AAKAAKKK</pre>
+    <img src="fesztival.png" alt="Fesztivál feladat ábrája">
 
-            <strong>Kimenet:</strong>
-            <pre>6</pre>
+    <h3>Egyszerű Python program</h3>
+    <pre><code>fesztival_db = int(input())
+fesztivalok = []
 
-            Magyarázat: A megoldás AAAKKK, azaz három rekesz alma után pakolhatjuk az utolsó 3 rekesz-ben levő körtéket.
-        </div>
+for i in range(fesztival_db):
+    elso_nap, utolso_nap, bevetel = map(int, input().split())
+    fesztivalok.append((elso_nap, utolso_nap, bevetel, i + 1))
 
-        <div class="block-title">Megoldási mód (Python)</div>
-        <div class="block-box">
-            <pre>
-lada_db = int(input())
-ladak = input().strip()
+fesztivalok = sorted(fesztivalok, key=lambda x: x[1])
 
-alma_elotte = [0] * (lada_db + 1)
-for i in range(lada_db):
-    if ladak[i] == 'A':
-        alma_elotte[i + 1] = alma_elotte[i] + 1
+utolso_nem_utkozo = []
+for i in range(fesztival_db):
+    elso_nap_i, utolso_nap_i, bevetel_i, sorszam_i = fesztivalok[i]
+    j = i - 1
+    while j &gt;= 0:
+        elso_nap_j, utolso_nap_j, bevetel_j, sorszam_j = fesztivalok[j]
+        if utolso_nap_j &lt; elso_nap_i:
+            break
+        j -= 1
+    utolso_nem_utkozo.append(j)
+
+max_bevetel = [0] * (fesztival_db + 1)
+valasztott_fesztivalok = [[] for _ in range(fesztival_db + 1)]
+
+for i in range(1, fesztival_db + 1):
+    elso_nap, utolso_nap, bevetel, sorszam = fesztivalok[i - 1]
+    kihagyott_bevetel = max_bevetel[i - 1]
+    ha_beszamoljuk_index = utolso_nem_utkozo[i - 1] + 1
+    ha_beszamoljuk_bevetel = max_bevetel[ha_beszamoljuk_index] + bevetel
+
+    if kihagyott_bevetel &gt; ha_beszamoljuk_bevetel:
+        max_bevetel[i] = kihagyott_bevetel
+        valasztott_fesztivalok[i] = valasztott_fesztivalok[i - 1][:]
     else:
-        alma_elotte[i + 1] = alma_elotte[i]
+        max_bevetel[i] = ha_beszamoljuk_bevetel
+        valasztott_fesztivalok[i] = valasztott_fesztivalok[ha_beszamoljuk_index][:] + [sorszam]
 
-korte_utana = [0] * (lada_db + 1)
-for i in range(lada_db - 1, -1, -1):
-    if ladak[i] == 'K':
-        korte_utana[i] = korte_utana[i + 1] + 1
-    else:
-        korte_utana[i] = korte_utana[i + 1]
+print(max_bevetel[fesztival_db])
+print(len(valasztott_fesztivalok[fesztival_db]), *valasztott_fesztivalok[fesztival_db])</code></pre>
 
-max_ladak = 0
-for valaszto_hely in range(lada_db + 1):
-    alma_db = alma_elotte[valaszto_hely]
-    korte_db = korte_utana[valaszto_hely]
-    rakott = min(alma_db, korte_db) * 2
-    if rakott > max_ladak:
-        max_ladak = rakott
+    <h3>Mit csinál a program?</h3>
+    <ol>
+        <li>Beolvassa a fesztiválok számát és adatait.</li>
+        <li>Időrendbe rakja a fesztiválokat az utolsó napjuk szerint.</li>
+        <li>Minden fesztiválhoz megkeresi az utolsó olyan fesztivált előtte, amellyel nem ütközik.</li>
+        <li>Dinamikus programozással eldönti, hogy érdemes-e betenni az adott fesztivált a válogatásba, vagy jobb kihagyni.</li>
+        <li>Végül kiírja a legnagyobb elérhető bevételt és a hozzá tartozó fesztiválok sorszámait.</li>
+    </ol>
+</section>
 
-print(max_ladak)
-</pre>
-            <p><strong>Magyarázat:</strong><br>
-                Úgy gondolkodunk, hogy valahol „elvágjuk” a sort: balra almákat veszünk fel, jobbra körtéket.
-                Ehhez végigszámoljuk, hogy az első i ládában hány A van (<code>prefixA</code>), és hátulról,
-                hogy az i+1..N tartományban hány K van (<code>suffixK</code>).
-                <br><br>
-                Ott jó az elvágás, ahol a bal oldali A-k száma megegyezik a jobb oldali K-k számával.
-                Ha X ilyen, akkor 2·X ládát tudunk felrakni (X A + X K). Végigpróbáljuk az összes i-t,
-                és megjegyezzük a legnagyobb értéket.
-                <br><br>
-                Mivel csak egyszer megyünk végig a soron előre és egyszer hátra, az algoritmus
-                lineáris idejű: nagyjából O(N).
-            </p>
-        </div>
-    </section>
+<!-- 2. FELADAT: HANOI TORNYAI VARIÁNS -->
+<section id="hanoi">
+    <h2>2. feladat – Hanoi tornyai variáns</h2>
 
-    <!-- ============================= -->
-    <!--           HANOI              -->
-    <!-- ============================= -->
-    <section class="task-section" id="hanoi">
-        <h2>Hanoi tornyai variáns – Rekurzió</h2>
+    <h3>Feladatleírás</h3>
+    <p>Tekintsük a jól ismert Hanoi tornyai problémának azt a változatát, amikor a kezdeti játékállásban
+        és a cél játékállásban is a korongok tetszőlegesen helyezkedhetnek el, feltéve, hogy mindegyik
+        nála nagyobb korongon van (vagy az alsó). A játék során egy lépésben egy korongot mozgathatunk
+        valamelyik torony tetejéről egy másik torony tetejére, ha ott nála nagyobb korong van.</p>
 
-        <div class="block-title">Feladatleírás</div>
-        <div class="block-box">
-           Tekintsük a jól ismert Hanoi tornyai problémának azt a változatát, amikor a kezdeti játékállásban és a cél játékállásban is a korongok tetszőlegesen helyezkedhetnek el, feltéve, hogy
-mindegyik nála nagyobb korongon van (vagy az alsó). A játék során egy lépésben egy korongot mozgathatunk valamelyik torony tetejéről egy másik torony tetejére, ha ott nálánál
-nagyobb korong van.
-            <br><br>
-           A feladat az, hogy rakjuk át egyesével mozgatva a korongokat, betartva, hogy korongot csak
-nála nagyobbra rakhatunk.
-            <br><br>
-            Készíts programot, amely megad egy olyan lépéssorozatot, amely hatására a kezdeti játékállásból a cél játékállás keletkezik!
-        </div>
+    <p>A feladat az, hogy rakjuk át egyesével mozgatva a korongokat, betartva, hogy korongot csak nála
+        nagyobbra rakhatunk. Készíts programot, amely megad egy olyan lépéssorozatot, amely hatására a
+        kezdeti játékállásból a cél játékállás keletkezik.</p>
 
-        <div class="block-title">Bemenet</div>
-        <div class="block-box">
-           A standard bemenet első három sora a kezdeti, a második három sora a cél játékállást
-tartalmazza, rendre az első  (1), a második (2) és harmadik (3) torony korongjait csökkenő
-sorrendben. Minden sort a 0 szám zárja (ami nem korong méret). Ha k szerepel valamelyik
-sorban, akkor minden k-nél kisebb szám is ott van valamelyik torony sorában.
-A legnagyobb korong mérete legfeljebb 16.
-        </div>
+    <h3>Bemenet</h3>
+    <p>A standard bemenet első három sora a kezdeti, a második három sora a cél játékállást
+        tartalmazza, rendre az első (1), a második (2) és harmadik (3) torony korongjait csökkenő
+        sorrendben. Minden sort a 0 szám zárja (ami nem korong méret). Ha k szerepel valamelyik sorban,
+        akkor minden k-nál kisebb szám is ott van valamelyik torony sorában. A legnagyobb korong mérete
+        legfeljebb 16.</p>
 
-        <div class="block-title">Kimenet</div>
-        <div class="block-box">
-            A standard kimenet Első sora a végrehajtandó lépések számát tartalmazza. Minden további
-sor egy lépést adjon meg, amelyeket ebben a sorrendben végrehajtva a cél játékállás keletkezik!
-gy lépést két egész szám adjon meg: Rol és Ra, (1 <= Rol;Ra <= 3 és Rol != Ra) ami azt
-jelenti, hogy a Rol torony tetején lévő korongot kell átrakni a Ra torony tetejére.
-Több megoldás esetén bármelyik megadható.
-        </div>
+    <h3>Kimenet</h3>
+    <p>A standard kimenet első sora a végrehajtandó lépések számát tartalmazza. Minden további sor
+        egy lépést adjon meg, amelyeket ebben a sorrendben végrehajtva a cél játékállás keletkezik.
+        Egy lépést két egész szám adjon meg: honnan és hova, ami azt jelenti, hogy melyik torony tetejéről
+        melyik torony tetejére kell átrakni a korongot.</p>
 
-        <div class="block-title">Példa</div>
-        <div class="block-box">
-            <strong>Bemenet:</strong>
-            <pre>4 3 1 0 
-            5 0
-            2 0
-            0
-            5 3 2 1 0
-            4 0</pre>
-
-            <strong>Kimenet (lehetséges):</strong>
-            <pre>6
-                1 3
-                1 2
-                3 1
-                3 2  
-                1 2
-                1 3</pre>
-        </div>
-
-        <div class="block-title">Megoldási mód (Python – alap Hanoi)</div>
-        <div class="block-box">
-            <pre> kezdo_tornyok = []
+    <h3>Egyszerű Python program (BFS, import nélkül)</h3>
+    <pre><code>kezdo_tornyok = []
 for _ in range(3):
     sor = list(map(int, input().split()))
     kezdo_tornyok.append(tuple(sor[:-1]))
@@ -336,19 +239,18 @@ def uj_allapot(allapot, honnan, hova):
     if len(tornyok[honnan]) == 0:
         return None
     felso_korong = tornyok[honnan][0]
-    if len(tornyok[hova]) > 0 and tornyok[hova][0] <felso_korong: 
+    if len(tornyok[hova]) &gt; 0 and tornyok[hova][0] &lt; felso_korong:
         return None
     tornyok[honnan] = tornyok[honnan][1:]
     tornyok[hova] = [felso_korong] + tornyok[hova]
-    uj = (tuple(tornyok[0]), tuple(tornyok[1]), tuple(tornyok[2]))
-    return uj
+    return (tuple(tornyok[0]), tuple(tornyok[1]), tuple(tornyok[2]))
 
 sor = [kezdo_allapot]
 fej = 0
 szulo = {kezdo_allapot: None}
 lepes = {kezdo_allapot: None}
 
-while fej < len(sor):
+while fej &lt; len(sor):
     most = sor[fej]
     fej += 1
     if most == cel_allapot:
@@ -371,168 +273,102 @@ while szulo[akt] is not None:
 utvonal.reverse()
 print(len(utvonal))
 for honnan, hova in utvonal:
-    print(honnan, hova)
- </pre>
+    print(honnan, hova)</code></pre>
 
-            <p><strong>Magyarázat:</strong><br>
-                Itt a klasszikus Hanoi feladat rekurzív megoldását mutatom meg, mert ezen
-                látszik szépen, hogyan működik a rekurzió.
-                <br><br>
-                Ha n korongot szeretnénk az 1. toronyról a 3.-ra vinni:
-                <ul>
-                    <li>Először az <strong>n-1</strong> kisebb korongot visszük át a segédtoronyra (2.).</li>
-                    <li>Utána átvisszük a legnagyobb korongot közvetlenül a célra (3.).</li>
-                    <li>Végül az <strong>n-1</strong> kisebb korongot átpakoljuk a segédtoronyról a célra,
-                        immár a legnagyobb korong tetejére.</li>
-                </ul>
-                Minden lépésnél ugyanaz a gondolat: „oldjuk meg a feladatot kevesebb korongra”.
-                Ez a tiszta rekurziós minta. A versenyfeladatban a kezdő és célállás bonyolultabb,
-                de az ötlet hasonló: a nagyobb korongok pozíciója határozza meg, mely
-                kisebb korongokat kell előbb elmozgatni.
-            </p>
-        </div>
-    </section>
+    <h3>Mit csinál a program?</h3>
+    <ol>
+        <li>Beolvassa a kezdeti és a cél állapotot.</li>
+        <li>Az állapotot három torony listájaként tárolja.</li>
+        <li>Szélességi kereséssel (BFS) végigpróbálja az összes lehetséges lépést, amíg el nem jut a célig.</li>
+        <li>Eltárolja, hogy melyik állapot miből jött létre, és milyen lépéssel.</li>
+        <li>A végén visszaköveti az utat a célállapottól a kezdetiig, és kiírja a teljes lépéssorozatot.</li>
+    </ol>
+</section>
 
-    <!-- ============================= -->
-    <!--         FESZTIVÁL            -->
-    <!-- ============================= -->
-    <section class="task-section" id="fesztival">
-        <h2>Fesztivál – Dinamikus programozás</h2>
+<!-- 3. FELADAT: LEGTÖBB GYÜMÖLCS -->
+<section id="gyumolcs">
+    <h2>3. feladat – Legtöbb gyümölcs</h2>
 
-        <div class="block-title">Feladatleírás</div>
-        <div class="block-box">
-            Egy városban N fesztiválra jelentkeztek be rendezők. Mindegyikről tudjuk, hogy mettől meddig tervezik tartani és mennyi bevételt remélnek tőle. Egy időben csak egy fesztivál tarthatnak.
-            <br><br>
-            Írj programot, amely megadja, hogy mekkora az elérhető legnagyobb bevétel!
-        </div>
+    <h3>Feladatleírás</h3>
+    <p>Egymás mellé egy sorban lerakott ládákban alma, illetve körte van, minden ládában pontosan az
+        egyik féle gyümölcs. Ugyanannyi ládában található alma, mint ahányban körte. Egy kamionnal kell
+        elszállítanunk a ládákat. A kamion egy irányban tud végigmenni a ládasor mellett. A kamionra
+        pakolás során arról dönthetünk, hogy az aktuális ládát elvisszük a kamionnal, vagy nem visszük el.
+        A kamionra először almás ládákat kell pakolni, a körték csak ezután jöhetnek. Ugyanannyi almás
+        ládát kell elvinni, mint amennyi körtét tartalmazót.</p>
 
-        <div class="block-title">Bemenet</div>
-        <div class="block-box">
-            A standard bemenet első sorában a fesztiválok száma van (1≤N≤100000). A következő N sorban egy-egy fesztivál első napja, utolsó napja (1≤Elsői≤Utolsói≤100000) és a várt bevétele (1≤Bevételi≤10000) található.
-        </div>
+    <p>Készíts programot, amely megadja, hogy maximum hány ládát pakolhatunk fel így a kamionra.</p>
 
-        <div class="block-title">Kimenet</div>
-        <div class="block-box">
-            A standard kimenet első sorába az elérhető legnagyobb bevételt kell írni! A második sorba kell írni a kiválasztott fesztiválokat! A sorban az első szám a fesztiválok száma legyen, ezt kövesse azoknak a fesztiváloknak a sorszámai (tetszőleges sorrendben), amelyek ütközésmentesen megtarthatók és a legnagyobb bevételt eredményezik! Több megoldás esetén bármelyik megadható.
-        </div>
+    <h3>Bemenet és kimenet példa</h3>
+    <pre><code>Bemenet
+8
+AAKAAKKK
 
-        <div class="block-title">Példa</div>
-        <div class="block-box">
-            <strong>Bemenet:</strong>
-            <pre>4
-2 5 100
-1 3 60
-5 6 50
-4 5 30</pre>
+Kimenet
+6</code></pre>
 
-            <strong>Kimenet (egy lehetséges):</strong>
-            <pre>110
-2 3 2</pre>
+    <h3>Egyszerű Python program</h3>
+    <pre><code>lada_db = int(input())
+ladak = input().strip()
 
-           
-        </div>
-
-        <div class="block-title">Megoldási mód (Python – DP intervallumokra)</div>
-        <div class="block-box">
-            <pre> 
-fesztival_db = int(input())
-fesztivalok = []
-
-for i in range(fesztival_db):
-    elso_nap, utolso_nap, bevetel = map(int, input().split())
-    fesztivalok.append((elso_nap, utolso_nap, bevetel, i + 1))
-
-fesztivalok = sorted(fesztivalok, key=lambda x: x[1])
-
-utolso_nem_utkozo = []
-for i in range(fesztival_db):
-    elso_nap_i, utolso_nap_i, bevetel_i, sorszam_i = fesztivalok[i]
-    j = i - 1
-    while j >= 0:
-        elso_nap_j, utolso_nap_j, bevetel_j, sorszam_j = fesztivalok[j]
-        if utolso_nap_j < elso_nap_i:
-            break
-        j -= 1
-    utolso_nem_utkozo.append(j)
-
-max_bevetel = [0] * (fesztival_db + 1)
-valasztott_fesztivalok = [[] for _ in range(fesztival_db + 1)]
-
-for i in range(1, fesztival_db + 1):
-    elso_nap, utolso_nap, bevetel, sorszam = fesztivalok[i - 1]
-    kihagyott_bevetel = max_bevetel[i - 1]
-    ha_beszamoljuk_index = utolso_nem_utkozo[i - 1] + 1
-    ha_beszamoljuk_bevetel = max_bevetel[ha_beszamoljuk_index] + bevetel
-
-    if kihagyott_bevetel > ha_beszamoljuk_bevetel:
-        max_bevetel[i] = kihagyott_bevetel
-        valasztott_fesztivalok[i] = valasztott_fesztivalok[i - 1][:]
+alma_elotte = [0] * (lada_db + 1)
+for i in range(lada_db):
+    if ladak[i] == 'A':
+        alma_elotte[i + 1] = alma_elotte[i] + 1
     else:
-        max_bevetel[i] = ha_beszamoljuk_bevetel
-        valasztott_fesztivalok[i] = valasztott_fesztivalok[ha_beszamoljuk_index][:] + [sorszam]
+        alma_elotte[i + 1] = alma_elotte[i]
 
-print(max_bevetel[fesztival_db])
-print(len(valasztott_fesztivalok[fesztival_db]), *valasztott_fesztivalok[fesztival_db])
+korte_utana = [0] * (lada_db + 1)
+for i in range(lada_db - 1, -1, -1):
+    if ladak[i] == 'K':
+        korte_utana[i] = korte_utana[i + 1] + 1
+    else:
+        korte_utana[i] = korte_utana[i + 1]
 
-    </pre>
+max_ladak = 0
+for valaszto_hely in range(lada_db + 1):
+    alma_db = alma_elotte[valaszto_hely]
+    korte_db = korte_utana[valaszto_hely]
+    rakott = min(alma_db, korte_db) * 2
+    if rakott &gt; max_ladak:
+        max_ladak = rakott
 
-            <p><strong>Magyarázat:</strong><br>
-                Itt klasszikus dinamikus programozást használunk, „időintervallumokra”.
-                <br><br>
-                <strong>1. lépés – rendezés:</strong> a fesztiválokat a befejezési napjuk szerint rendezzük.
-                Ez azért jó, mert ha tudjuk, hogy az i. fesztivál meddig tart, elég visszafelé keresni
-                az utolsó olyan fesztivált, ami ennél előbb fejeződik be – vele nem ütközik.
-                <br><br>
-                <strong>2. lépés – p[i] tömb:</strong> minden i-hez eltároljuk, hogy mi az utolsó nem ütköző
-                fesztivál indexe. Ehhez bináris keresést használunk a rendezett befejezési idők között.
-                <br><br>
-                <strong>3. lépés – dp[i]:</strong> legyen <code>dp[i]</code> a legnagyobb bevétel, amit az első
-                i rendezett fesztivál figyelembevételével el tudunk érni.
-                Két választásunk van az i. fesztiválnál:
-                <ul>
-                    <li><em>nem</em> vesszük fel → <code>dp[i] = dp[i-1]</code></li>
-                    <li>felvesszük → a bevétele + <code>dp[p[i-1] + 1]</code></li>
-                </ul>
-                A kettő közül a nagyobb kerül <code>dp[i]</code>-be.
-                <br><br>
-                <strong>4. lépés – visszafejtés:</strong> a <code>take</code> tömbből visszafelé indulva
-                megnézzük, mely fesztiváloknál választottuk a „felvesszük” ágat, így kapjuk a konkrét
-                fesztiválhalmazt.
-            </p>
-        </div>
-    </section>
+print(max_ladak)</code></pre>
 
-    <!-- ============================= -->
-    <!--           SÍPÁLYA            -->
-    <!-- ============================= -->
-    <section class="task-section" id="sipalya">
-        <h2>Sípálya – Fa- és gráfalgoritmus</h2>
+    <h3>Mit csinál a program?</h3>
+    <ol>
+        <li>Beolvassa a ládák sorát, ahol A egy almás ládát, K egy körtés ládát jelent.</li>
+        <li>Előre kiszámolja, hogy az egyes pozíciókig hány almás láda van összesen.</li>
+        <li>Visszafelé kiszámolja, hogy az egyes pozícióktól jobbra hány körtés láda van.</li>
+        <li>Minden lehetséges választóvonalnál megnézi, hogy ott legfeljebb hány A-t és hány K-t vehetünk fel úgy, hogy előbb az almák jönnek, utána a körték.</li>
+        <li>A válasz a maximális felpakolható ládaszám.</li>
+    </ol>
+</section>
 
-        <div class="block-title">Feladatleírás</div>
-        <div class="block-box">
-            Egy hegyoldalon lévő sípályán minden választható lesiklási útvonal a start ponttól a célpontig vezet. A pálya elágazási pontokat tartalmaz, csak ilyen pontokon lehet a lesiklás során pályaszakaszt váltani. Két elágazási pont közötti részt nevezzük pályaszakasznak. Minden verseny előtt a szervezők ellenőrzik a pálya alkalmasságát. Ebből a célból ellenőrök mennek végig a pályán. Minden ellenőr a start ponttól indul és végig megy egy útvonalon a célpontig. 
-            Az a cél, hogy a legkevesebb ellenőrt kelljen alkalmazni ahhoz, hogy minden pályaszakaszon áthaladjon legalább egy ellenőr.
-            <br><br>
-           A pálya olyan, hogy a térképe lerajzolható úgy, hogy bármely két pályaszakasz nem metszi egymást (nincs sem alagút, sem felüljáró), csak elágazási pontban lehet közös pontjuk. Két elágazási pont között legfeljebb egy pályaszakasz van. Minden pályaszakaszon csak egyirányban lehet lesiklani, a magasabban lévő pontból az alacsonyabban lévő pont felé. Bármely elágazási pont elérhető a start pontból és bármely elágazási pontból el lehet jutni a célpontba.
-            <br><br>
-            Készíts programot, amely kiszámítja, hogy legkevesebb hány ellenőrt kell alkalmazni!
-        </div>
+<!-- 4. FELADAT: SÍPÁLYA -->
+<section id="sipalya">
+    <h2>4. feladat – Sípálya</h2>
 
-        <div class="block-title">Bemenet</div>
-        <div class="block-box">
-            A standard bemenet első sorában az elágazási pontok száma (1≤N≤20000) van. Az elágazási pontokat az 1,…,N számokkal azonosítjuk, a start pont azonosítója az 1, a célponté N. A további N-1 sor közül az i-edik az i-edik elágazási pontból induló pályaszakaszokat adja meg Nyugatról Kelet felé haladó sorrendben. 
-            A sorban az első szám a pontból induló pályaszakaszok száma, ezt követik azon elágazási pontok sorszámai, ahova a pályaszakasz vezet.
-        </div>
+    <h3>Feladatleírás</h3>
+    <p>Egy hegyoldalon lévő sípályán minden választható lesiklási útvonal a start ponttól a célpontig
+        vezet. A pálya elágazási pontokat tartalmaz, csak ilyen pontokon lehet a lesiklás során
+        pályaszakaszt váltani. Két elágazási pont közötti részt nevezzük pályaszakasznak. Minden verseny
+        előtt a szervezők ellenőrzik a pálya alkalmasságát. Ebből a célból ellenőrök mennek végig a pályán.
+        Minden ellenőr a start ponttól indul és végig megy egy útvonalon a célpontig. Az a cél, hogy a
+        legkevesebb ellenőrt kelljen alkalmazni ahhoz, hogy minden pályaszakaszon áthaladjon legalább egy
+        ellenőr.</p>
 
-        <div class="block-title">Kimenet</div>
-        <div class="block-box">
-            A standard kimenet első és egyetlen sorába egy egész számot kell írni, az alkalmazandó legkevesebb ellenőr számát!
-        </div>
+    <p>A pálya olyan, hogy a térképe lerajzolható úgy, hogy bármely két pályaszakasz nem metszi
+        egymást (nincs sem alagút, sem felüljáró), csak elágazási pontban lehet közös pontjuk. Két elágazási
+        pont között legfeljebb egy pályaszakasz van. Minden pályaszakaszon csak egyirányban lehet lesiklani,
+        a magasabban lévő pontból az alacsonyabban lévő pont felé. Bármely elágazási pont elérhető a start
+        pontból és bármely elágazási pontból el lehet jutni a célpontba.</p>
 
-        <div class="block-title">Példa</div>
-        <div class="block-box">
-            <strong>Bemenet:</strong>
-            <pre>10
+    <p>Készíts programot, amely kiszámítja, hogy legkevesebb hány ellenőrt kell alkalmazni.</p>
+
+    <h3>Példa bemenet és kimenet</h3>
+    <pre><code>bemenet
+10
 3 2 3 4
 2 5 6
 1 6
@@ -541,18 +377,15 @@ print(len(valasztott_fesztivalok[fesztival_db]), *valasztott_fesztivalok[fesztiv
 1 10
 2 10 9
 1 9
-1 10</pre>
+1 10
 
-            <strong>Kimenet:</strong>
-            <pre>7</pre>
+kimenet
+7</code></pre>
 
-            Itt 7 különböző útvonal elég ahhoz, hogy minden pályaszakaszon legalább egy ellenőr átmenjen.
-        </div>
+    <img src="sipalya.png" alt="Sípálya feladat ábrája">
 
-        <div class="block-title">Megoldási mód</div>
-        <div class="block-box">
-            <pre>
-def main():
+    <h3>Egyszerű Python program</h3>
+    <pre><code>def main():
     n = int(input().strip())
 
     palya = [[] for _ in range(n + 1)]
@@ -578,31 +411,22 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main()</code></pre>
 
+    <h3>Mit csinál a program?</h3>
+    <ol>
+        <li>Beolvassa az elágazási pontok számát, majd minden ponthoz az onnan induló pályaszakaszok célpontjait.</li>
+        <li>A palya listában minden pontnál elmenti, hogy mely pontokba vezetnek a kimenő élek.</li>
+        <li>Az ellenor_szukseg tömbben visszafelé végighalad a pontokon, és kiszámolja, hogy az adott pontból indulva hány ellenőrre van szükség.</li>
+        <li>Ha egy pontból nem indul tovább pálya, akkor oda 1 ellenőr elég.</li>
+        <li>Ha indulnak további pályák, akkor az összes következő pont szükségletét összeadja.</li>
+        <li>A végeredmény a startpont (1) értéke, ezt írja ki a program.</li>
+    </ol>
+</section>
 
-
-       </pre>
-
-            <p><strong>Magyarázat:</strong><br>
-            
-                Lépések:
-                <ol>
-                    <li><strong>Gráf beolvasása</strong> – minden csúcsból eltároljuk, melyekbe vezetnek élek.</li>
-                    <li><strong>Összes útvonal</strong> – egy rekurzív DFS-sel összegyűjtjük az összes lehetséges
-                        utat 1-től N-ig.</li>
-                    <li><strong>Élek gyűjtése</strong> – összeszedjük az összes (u,v) élpárt.</li>
-                    <li><strong>Mohó lefedés</strong> – amíg van lefedetlen él, mindig azt az útvonalat választjuk,
-                        amelyik a legtöbb ilyen élt érinti. Ezzel „lefedezzük” az éleket útvonalakkal.</li>
-                </ol>
-                Így kapunk egy közelítést a minimális ellenőrszámra. Nagy N esetén ez nem futna elég gyorsan,
-                de tanításra jól megmutatja, hogyan gondolunk a pályára, mint gráfra, és mit jelent az,
-                hogy „útvonalakkal lefedjük az éleket”.
-            </p>
-        </div>
-    </section>
-
-</div>
+<footer>
+    Készült a Problémamegoldó szemináriumhoz – Név helye, 2025.
+</footer>
 
 </body>
 </html>
