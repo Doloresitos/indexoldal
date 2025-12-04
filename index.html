@@ -217,33 +217,8 @@ AAKAAKKK</pre>
 
         <div class="block-title">Megoldási mód (Python)</div>
         <div class="block-box">
-            <pre>import sys
-
-def main():
-    n = int(sys.stdin.readline())
-    s = sys.stdin.readline().strip()
-
-    # prefixA[i] = az első i ládában hány A van
-    prefixA = [0] * (n + 1)
-    for i, ch in enumerate(s, start=1):
-        prefixA[i] = prefixA[i - 1] + (1 if ch == "A" else 0)
-
-    # suffixK[i] = az i..n ládákban hány K van
-    suffixK = [0] * (n + 2)
-    for i in range(n, 0, -1):
-        suffixK[i] = suffixK[i + 1] + (1 if s[i - 1] == "K" else 0)
-
-    best = 0
-    # i után vágjuk el a sort: 1..i almák, i+1..n körték
-    for i in range(1, n):
-        if prefixA[i] == suffixK[i + 1]:
-            best = max(best, 2 * prefixA[i])
-
-    print(best)
-
-if __name__ == "__main__":
-    main()</pre>
-
+            <pre>
+                coming soon </pre>
             <p><strong>Magyarázat:</strong><br>
                 Úgy gondolkodunk, hogy valahol „elvágjuk” a sort: balra almákat veszünk fel, jobbra körtéket.
                 Ehhez végigszámoljuk, hogy az első i ládában hány A van (<code>prefixA</code>), és hátulról,
@@ -267,16 +242,14 @@ if __name__ == "__main__":
 
         <div class="block-title">Feladatleírás</div>
         <div class="block-box">
-           Tekintsük a jól ismert Hanoi tornyai problémának azt a változatát, amikor a kezdeti játék-
-állásban és a cél játékállásban is a korongok tetszőlegesen helyezkedhetnek el, feltéve, hogy
+           Tekintsük a jól ismert Hanoi tornyai problémának azt a változatát, amikor a kezdeti játékállásban és a cél játékállásban is a korongok tetszőlegesen helyezkedhetnek el, feltéve, hogy
 mindegyik nála nagyobb korongon van (vagy az alsó). A játék során egy lépésben egy korongot mozgathatunk valamelyik torony tetejéről egy másik torony tetejére, ha ott nálánál
 nagyobb korong van.
             <br><br>
            A feladat az, hogy rakjuk át egyesével mozgatva a korongokat, betartva, hogy korongot csak
 nála nagyobbra rakhatunk.
             <br><br>
-            Készíts programot, amely megad egy olyan lépéssorozatot, amely hatására a kezdeti játékál-
-lásból a cél játékállás keletkezik!
+            Készíts programot, amely megad egy olyan lépéssorozatot, amely hatására a kezdeti játékállásból a cél játékállás keletkezik!
         </div>
 
         <div class="block-title">Bemenet</div>
@@ -319,28 +292,7 @@ Több megoldás esetén bármelyik megadható.
 
         <div class="block-title">Megoldási mód (Python – alap Hanoi)</div>
         <div class="block-box">
-            <pre>def hanoi(n, src, aux, dest, moves):
-    """n korong átvitele src-ről dest-re aux segítségével."""
-    if n == 0:
-        return
-    # 1) vigyük a n-1 kisebb korongot a segédtoronyra
-    hanoi(n - 1, src, dest, aux, moves)
-    # 2) vigyük a legnagyobbat a célra
-    moves.append((src, dest))
-    # 3) a kisebbeket tegyük rá a célon lévő legnagyobbra
-    hanoi(n - 1, aux, src, dest, moves)
-
-def main():
-    n = int(input("Korongok száma: "))
-    moves = []
-    hanoi(n, 1, 2, 3, moves)
-
-    print(len(moves))
-    for a, b in moves:
-        print(a, b)
-
-if __name__ == "__main__":
-    main()</pre>
+            <pre>coming soon</pre>
 
             <p><strong>Magyarázat:</strong><br>
                 Itt a klasszikus Hanoi feladat rekurzív megoldását mutatom meg, mert ezen
@@ -402,71 +354,8 @@ if __name__ == "__main__":
 
         <div class="block-title">Megoldási mód (Python – DP intervallumokra)</div>
         <div class="block-box">
-            <pre>import sys
-import bisect
-
-def main():
-    data = sys.stdin.read().strip().split()
-    if not data:
-        return
-    it = iter(data)
-    n = int(next(it))
-
-    festivals = []
-    for idx in range(1, n + 1):
-        start = int(next(it))
-        end = int(next(it))
-        profit = int(next(it))
-        festivals.append((end, start, profit, idx))
-
-    # rendezzük befejezési idő szerint
-    festivals.sort()
-    ends = [f[0] for f in festivals]
-
-    # p[i] = utolsó olyan fesztivál indexe, ami nem ütközik az i. fesztivállal
-    p = [0] * n
-    for i in range(n):
-        end_i, start_i, _, _ = festivals[i]
-        # olyan fesztivált keresünk, ami legkésőbb start_i - 1-nél ér véget
-        j = bisect.bisect_right(ends, start_i - 1, 0, i) - 1
-        p[i] = j
-
-    # dp[i] = legnagyobb bevétel az első i fesztivál (0..i-1) figyelembevételével
-    dp = [0] * (n + 1)
-    take = [False] * n
-
-    for i in range(1, n + 1):
-        end_i, start_i, profit_i, _ = festivals[i - 1]
-        # 1) nem vesszük fel az i. fesztivált
-        option1 = dp[i - 1]
-        # 2) felvesszük: profit + dp[p[i-1] + 1]
-        option2 = profit_i + dp[p[i - 1] + 1]
-
-        if option2 > option1:
-            dp[i] = option2
-            take[i - 1] = True
-        else:
-            dp[i] = option1
-
-    # visszafejtés: mely fesztiválokat vettük fel
-    chosen = []
-    i = n
-    while i > 0:
-        if take[i - 1]:
-            chosen.append(festivals[i - 1][3])  # eredeti index
-            i = p[i - 1] + 1
-        else:
-            i -= 1
-
-    chosen.reverse()
-    print(dp[n])
-    if chosen:
-        print(len(chosen), *chosen)
-    else:
-        print(0)
-
-if __name__ == "__main__":
-    main()</pre>
+            <pre> coming soon
+    </pre>
 
             <p><strong>Magyarázat:</strong><br>
                 Itt klasszikus dinamikus programozást használunk, „időintervallumokra”.
@@ -541,76 +430,43 @@ if __name__ == "__main__":
             Itt 7 különböző útvonal elég ahhoz, hogy minden pályaszakaszon legalább egy ellenőr átmenjen.
         </div>
 
-        <div class="block-title">Megoldási mód (Python – oktató jellegű, kis N-re)</div>
+        <div class="block-title">Megoldási mód</div>
         <div class="block-box">
-            <pre>from collections import defaultdict
-
-def dfs_paths(graph, node, target, path, paths):
-    """Összes útvonal gyűjtése 1-től N-ig (kis gráfra)."""
-    path.append(node)
-    if node == target:
-        paths.append(path.copy())
-    else:
-        for nxt in graph[node]:
-            dfs_paths(graph, nxt, target, path, paths)
-    path.pop()
-
-def main():
+            <pre>
+                def main():
     n = int(input().strip())
-    graph = defaultdict(list)
+
+    palya = [[] for _ in range(n + 1)]
 
     for i in range(1, n):
-        parts = list(map(int, input().split()))
-        k = parts[0]
-        for v in parts[1:1 + k]:
-            graph[i].append(v)
+        sor = list(map(int, input().split()))
+        db = sor[0]
+        celpontok = sor[1:]
+        palya[i] = celpontok
 
-    # 1) összes útvonal 1-től N-ig (ez csak kis N esetén használható)
-    all_paths = []
-    dfs_paths(graph, 1, n, [], all_paths)
+    ellenor_szukseg = [0] * (n + 1)
 
-    # minden él azonosítása (u,v)
-    edges = set()
-    for u in graph:
-        for v in graph[u]:
-            edges.add((u, v))
+    for pont in range(n, 0, -1):
+        if len(palya[pont]) == 0:
+            ellenor_szukseg[pont] = 1
+        else:
+            osszeg = 0
+            for kovetkezo in palya[pont]:
+                osszeg += ellenor_szukseg[kovetkezo]
+            ellenor_szukseg[pont] = osszeg
 
-    # 2) minden útvonalhoz: mely éleket érinti
-    path_edges = []
-    for p in all_paths:
-        es = set()
-        for i in range(len(p) - 1):
-            es.add((p[i], p[i + 1]))
-        path_edges.append(es)
+    print(ellenor_szukseg[1])
 
-    # 3) nagyon egyszerű mohó: mindig azt az útvonalat választjuk,
-    #    ami a legtöbb még lefedetlen élt tartalmazza
-    uncovered = set(edges)
-    used_paths = 0
-
-    while uncovered:
-        best_idx = None
-        best_cover = 0
-        for i, es in enumerate(path_edges):
-            cover = len(uncovered & es)
-            if cover > best_cover:
-                best_cover = cover
-                best_idx = i
-        if best_idx is None:
-            break  # elvileg nem fordulhat elő jól megadott pályánál
-        uncovered -= path_edges[best_idx]
-        used_paths += 1
-
-    print(used_paths)
 
 if __name__ == "__main__":
-    main()</pre>
+    main()
+
+
+
+       </pre>
 
             <p><strong>Magyarázat:</strong><br>
-                Ez a kód <em>nem</em az OKTV-feladat hatékony, végleges megoldása, hanem
-                egy oktató jellegű változat, ami jól láttatja a gondolatmenetet
-                <strong>kis</strong> példákon.
-                <br><br>
+            
                 Lépések:
                 <ol>
                     <li><strong>Gráf beolvasása</strong> – minden csúcsból eltároljuk, melyekbe vezetnek élek.</li>
