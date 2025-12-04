@@ -218,7 +218,33 @@ AAKAAKKK</pre>
         <div class="block-title">Megoldási mód (Python)</div>
         <div class="block-box">
             <pre>
-                coming soon </pre>
+lada_db = int(input())
+ladak = input().strip()
+
+alma_elotte = [0] * (lada_db + 1)
+for i in range(lada_db):
+    if ladak[i] == 'A':
+        alma_elotte[i + 1] = alma_elotte[i] + 1
+    else:
+        alma_elotte[i + 1] = alma_elotte[i]
+
+korte_utana = [0] * (lada_db + 1)
+for i in range(lada_db - 1, -1, -1):
+    if ladak[i] == 'K':
+        korte_utana[i] = korte_utana[i + 1] + 1
+    else:
+        korte_utana[i] = korte_utana[i + 1]
+
+max_ladak = 0
+for valaszto_hely in range(lada_db + 1):
+    alma_db = alma_elotte[valaszto_hely]
+    korte_db = korte_utana[valaszto_hely]
+    rakott = min(alma_db, korte_db) * 2
+    if rakott > max_ladak:
+        max_ladak = rakott
+
+print(max_ladak)
+</pre>
             <p><strong>Magyarázat:</strong><br>
                 Úgy gondolkodunk, hogy valahol „elvágjuk” a sort: balra almákat veszünk fel, jobbra körtéket.
                 Ehhez végigszámoljuk, hogy az első i ládában hány A van (<code>prefixA</code>), és hátulról,
@@ -292,7 +318,61 @@ Több megoldás esetén bármelyik megadható.
 
         <div class="block-title">Megoldási mód (Python – alap Hanoi)</div>
         <div class="block-box">
-            <pre>coming soon</pre>
+            <pre> kezdo_tornyok = []
+for _ in range(3):
+    sor = list(map(int, input().split()))
+    kezdo_tornyok.append(tuple(sor[:-1]))
+
+cel_tornyok = []
+for _ in range(3):
+    sor = list(map(int, input().split()))
+    cel_tornyok.append(tuple(sor[:-1]))
+
+kezdo_allapot = tuple(kezdo_tornyok)
+cel_allapot = tuple(cel_tornyok)
+
+def uj_allapot(allapot, honnan, hova):
+    tornyok = [list(t) for t in allapot]
+    if len(tornyok[honnan]) == 0:
+        return None
+    felso_korong = tornyok[honnan][0]
+    if len(tornyok[hova]) > 0 and tornyok[hova][0] <felso_korong: 
+        return None
+    tornyok[honnan] = tornyok[honnan][1:]
+    tornyok[hova] = [felso_korong] + tornyok[hova]
+    uj = (tuple(tornyok[0]), tuple(tornyok[1]), tuple(tornyok[2]))
+    return uj
+
+sor = [kezdo_allapot]
+fej = 0
+szulo = {kezdo_allapot: None}
+lepes = {kezdo_allapot: None}
+
+while fej < len(sor):
+    most = sor[fej]
+    fej += 1
+    if most == cel_allapot:
+        break
+    for honnan in range(3):
+        for hova in range(3):
+            if honnan != hova:
+                kovetkezo = uj_allapot(most, honnan, hova)
+                if kovetkezo is not None and kovetkezo not in szulo:
+                    szulo[kovetkezo] = most
+                    lepes[kovetkezo] = (honnan + 1, hova + 1)
+                    sor.append(kovetkezo)
+
+utvonal = []
+akt = cel_allapot
+while szulo[akt] is not None:
+    utvonal.append(lepes[akt])
+    akt = szulo[akt]
+
+utvonal.reverse()
+print(len(utvonal))
+for honnan, hova in utvonal:
+    print(honnan, hova)
+ </pre>
 
             <p><strong>Magyarázat:</strong><br>
                 Itt a klasszikus Hanoi feladat rekurzív megoldását mutatom meg, mert ezen
@@ -354,7 +434,46 @@ Több megoldás esetén bármelyik megadható.
 
         <div class="block-title">Megoldási mód (Python – DP intervallumokra)</div>
         <div class="block-box">
-            <pre> coming soon
+            <pre> 
+fesztival_db = int(input())
+fesztivalok = []
+
+for i in range(fesztival_db):
+    elso_nap, utolso_nap, bevetel = map(int, input().split())
+    fesztivalok.append((elso_nap, utolso_nap, bevetel, i + 1))
+
+fesztivalok = sorted(fesztivalok, key=lambda x: x[1])
+
+utolso_nem_utkozo = []
+for i in range(fesztival_db):
+    elso_nap_i, utolso_nap_i, bevetel_i, sorszam_i = fesztivalok[i]
+    j = i - 1
+    while j >= 0:
+        elso_nap_j, utolso_nap_j, bevetel_j, sorszam_j = fesztivalok[j]
+        if utolso_nap_j < elso_nap_i:
+            break
+        j -= 1
+    utolso_nem_utkozo.append(j)
+
+max_bevetel = [0] * (fesztival_db + 1)
+valasztott_fesztivalok = [[] for _ in range(fesztival_db + 1)]
+
+for i in range(1, fesztival_db + 1):
+    elso_nap, utolso_nap, bevetel, sorszam = fesztivalok[i - 1]
+    kihagyott_bevetel = max_bevetel[i - 1]
+    ha_beszamoljuk_index = utolso_nem_utkozo[i - 1] + 1
+    ha_beszamoljuk_bevetel = max_bevetel[ha_beszamoljuk_index] + bevetel
+
+    if kihagyott_bevetel > ha_beszamoljuk_bevetel:
+        max_bevetel[i] = kihagyott_bevetel
+        valasztott_fesztivalok[i] = valasztott_fesztivalok[i - 1][:]
+    else:
+        max_bevetel[i] = ha_beszamoljuk_bevetel
+        valasztott_fesztivalok[i] = valasztott_fesztivalok[ha_beszamoljuk_index][:] + [sorszam]
+
+print(max_bevetel[fesztival_db])
+print(len(valasztott_fesztivalok[fesztival_db]), *valasztott_fesztivalok[fesztival_db])
+
     </pre>
 
             <p><strong>Magyarázat:</strong><br>
