@@ -198,7 +198,92 @@ print(len(valasztott_fesztivalok[fesztival_db]), *valasztott_fesztivalok[fesztiv
 <!-- 2. FELADAT: HANOI TORNYAI VARIÁNS -->
 <section id="hanoi">
     <h2>2. feladat – Hanoi tornyai variáns - coming soon...</h2>
+     <h3>Feladatleírás</h3>
+    <p>Tekintsük a jól ismert Hanoi tornyai problémának azt a változatát, amikor a kezdeti játékállásban
+        és a cél játékállásban is a korongok tetszőlegesen helyezkedhetnek el, feltéve, hogy mindegyik
+        nála nagyobb korongon van (vagy az alsó). A játék során egy lépésben egy korongot mozgathatunk
+        valamelyik torony tetejéről egy másik torony tetejére, ha ott nála nagyobb korong van.</p>
 
+    <p>A feladat az, hogy rakjuk át egyesével mozgatva a korongokat, betartva, hogy korongot csak nála
+        nagyobbra rakhatunk. Készíts programot, amely megad egy olyan lépéssorozatot, amely hatására a
+        kezdeti játékállásból a cél játékállás keletkezik.</p>
+
+    <h3>Bemenet</h3>
+    <p>A standard bemenet első három sora a kezdeti, a második három sora a cél játékállást
+        tartalmazza, rendre az első (1), a második (2) és harmadik (3) torony korongjait csökkenő
+        sorrendben. Minden sort a 0 szám zárja (ami nem korong méret). Ha k szerepel valamelyik sorban,
+        akkor minden k-nál kisebb szám is ott van valamelyik torony sorában. A legnagyobb korong mérete
+        legfeljebb 16.</p>
+
+    <h3>Kimenet</h3>
+    <p>A standard kimenet első sora a végrehajtandó lépések számát tartalmazza. Minden további sor
+        egy lépést adjon meg, amelyeket ebben a sorrendben végrehajtva a cél játékállás keletkezik.
+        Egy lépést két egész szám adjon meg: honnan és hova, ami azt jelenti, hogy melyik torony tetejéről
+        melyik torony tetejére kell átrakni a korongot.</p>
+
+    <h3>Python program</h3>
+    <pre><code>kezdo_tornyok = []
+for _ in range(3):
+    sor = list(map(int, input().split()))
+    kezdo_tornyok.append(tuple(sor[:-1]))
+
+cel_tornyok = []
+for _ in range(3):
+    sor = list(map(int, input().split()))
+    cel_tornyok.append(tuple(sor[:-1]))
+
+kezdo_allapot = tuple(kezdo_tornyok)
+cel_allapot = tuple(cel_tornyok)
+
+def uj_allapot(allapot, honnan, hova):
+    tornyok = [list(t) for t in allapot]
+    if len(tornyok[honnan]) == 0:
+        return None
+    felso_korong = tornyok[honnan][0]
+    if len(tornyok[hova]) &gt; 0 and tornyok[hova][0] &lt; felso_korong:
+        return None
+    tornyok[honnan] = tornyok[honnan][1:]
+    tornyok[hova] = [felso_korong] + tornyok[hova]
+    return (tuple(tornyok[0]), tuple(tornyok[1]), tuple(tornyok[2]))
+
+sor = [kezdo_allapot]
+fej = 0
+szulo = {kezdo_allapot: None}
+lepes = {kezdo_allapot: None}
+
+while fej &lt; len(sor):
+    most = sor[fej]
+    fej += 1
+    if most == cel_allapot:
+        break
+    for honnan in range(3):
+        for hova in range(3):
+            if honnan != hova:
+                kovetkezo = uj_allapot(most, honnan, hova)
+                if kovetkezo is not None and kovetkezo not in szulo:
+                    szulo[kovetkezo] = most
+                    lepes[kovetkezo] = (honnan + 1, hova + 1)
+                    sor.append(kovetkezo)
+
+utvonal = []
+akt = cel_allapot
+while szulo[akt] is not None:
+    utvonal.append(lepes[akt])
+    akt = szulo[akt]
+
+utvonal.reverse()
+print(len(utvonal))
+for honnan, hova in utvonal:
+    print(honnan, hova)</code></pre>
+
+    <h3>Mit csinál a program?</h3>
+    <ol>
+        <li>Beolvassa a kezdeti és a cél állapotot.</li>
+        <li>Az állapotot három torony listájaként tárolja.</li>
+        <li>Szélességi kereséssel végigpróbálja az összes lehetséges lépést, amíg el nem jut a célig.</li>
+        <li>Eltárolja, hogy melyik állapot miből jött létre, és milyen lépéssel.</li>
+        <li>A végén visszaköveti az utat a célállapottól a kezdetiig, és kiírja a teljes lépéssorozatot.</li>
+    </ol>
    
 </section>
 
