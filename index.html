@@ -103,30 +103,40 @@
     
 </header>
 
-<nav>
+<nav class="menuracs">
     <a href="#fesztival">1. Fesztivál - Dinamikus programozás</a>
     <a href="#hanoi">2. Hanoi tornyai variáns - Rekurzió</a>
-    <br>
     <a href="#vasut">3. Vasútvonal - Keresés</a>
     <a href="#sipalya">4. Sípálya - Gráfalgoritmusok</a>
 </nav>
 
 <style>
-    nav {
+    .menuracs {
         display: grid;
-        grid-template-columns: 1fr 1fr;  
-        gap: 10px;                       
-        max-width: 600px;              
-        margin-bottom: 1rem;             
+        grid-template-columns: 1fr 1fr;   
+        gap: 15px;                        
+        max-width: 600px;                
+        margin: 20px auto;             
+        text-align: center;            
     }
 
-    nav a {
-        text-align: center;
+    .menuracs a {
+        display: flex;
+        justify-content: center;          
+        align-items: center;              
+        padding: 10px;
+        background: #ffffffc0;            
+        border: 1px solid #ddd;
+        border-radius: 8px;
         text-decoration: none;
-        padding: 6px 10px;
-        background: #efefef;             
-        border-radius: 4px;
-        color: black;
+        font-weight: 500;
+        color: #333;
+        transition: 0.2s;
+    }
+
+    .menuracs a:hover {
+        background: #e6e6e6;
+        transform: scale(1.03);
     }
 </style>
 
