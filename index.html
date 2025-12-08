@@ -106,7 +106,7 @@
 <nav>
     <a href="#fesztival">1. Fesztivál - Dinamikus programozás</a>
     <a href="#hanoi">2. Hanoi tornyai variáns - Rekurzió</a>
-    <a href="#gyumolcs">3. Legtöbb gyümölcs - Keresés, rendezés</a>
+    <a href="#gyumolcs">3. Vasútvonal - Keresés</a>
     <a href="#sipalya">4. Sípálya - Gráfalgoritmusok</a>
 </nav>
 
@@ -289,66 +289,60 @@ for honnan, hova in utvonal:
 
 
 <section id="gyumolcs">
-    <h2>3. feladat – Legtöbb gyümölcs</h2>
+    <h2>3. feladat – Vasútvonal, Legkevesebbel nőtt az utasok száma a vonaton</h2>
 
     <h3>Feladatleírás</h3>
-    <p>Egymás mellé egy sorban lerakott ládákban alma, illetve körte van, minden ládában pontosan az
-        egyik féle gyümölcs. Ugyanannyi ládában található alma, mint ahányban körte. Egy kamionnal kell
-        elszállítanunk a ládákat. A kamion egy irányban tud végigmenni a ládasor mellett. A kamionra
-        pakolás során arról dönthetünk, hogy az aktuális ládát elvisszük a kamionnal, vagy nem visszük el.
-        A kamionra először almás ládákat kell pakolni, a körték csak ezután jöhetnek. Ugyanannyi almás
-        ládát kell elvinni, mint amennyi körtét tartalmazót.</p>
+    <p>A Budapest-Székesfehérvár vasútvonalon egy vonat kalauza minden állomáson feljegyezte, hogy
+hányan szálltak fel a vonatra, illetve hányan szálltak le. (Budapesten biztos nincs leszálló, Székesfehérváron biztos nincs felszálló, aki leszállt, az nem száll vissza.)
+</p>
 
-    <p>Készíts programot, amely megadja, hogy maximum hány ládát pakolhatunk fel így a kamionra.</p>
+    <p>Készíts programot, amely megadja azt az állomást, ahol a legkevesebbel nőtt az utasok száma a
+vonaton!
+</p>
 
     <h3>Bemenet</h3>
-    <p>A standard bemenet első sorában a ládák száma van (2≤N≤100000, N páros szám). 
-        A következő sorban a ládák tartalma van leírva, a ládák sorrendjében (N darab betű, a fele A, a fele K betű).</p>
+    <p>A standard bemenet első sorában az állomások száma van (1≤N≤1000). A következő N sorban az egyes állomásokon leszállók (0≤le≤800) és felszállók (0≤fel≤800) száma van..</p>
     <h3>Kimenet</h3>
-    <p>A standard kimenet első sorába a maximális ládaszámot kell írni, amennyi a kamionra felpakolható!</p>
+    <p>A standard kimenet első sorába azon állomás sorszámát kell kiírni, ahol a legkevesebbel (de legalább 1-gyel) nőtt az utasok száma a vonaton! Több megoldás esetén a legkisebb sorszámút kell kiírni!</p>
     <h3>Bemenet és kimenet példa</h3>
     <pre><code>Bemenet
-8
-AAKAAKKK
+6 
+0 15 
+10 30 
+0 32 
+48 0 
+20 27 
+26 0
 
 Kimenet
-6</code></pre>
+5</code></pre>
 
     <h3>Python program</h3>
-    <pre><code>lada_db = int(input())
-ladak = input().strip()
+    <pre><code>def vonat():
+    allomasok_szama = int(input().strip())
 
-alma_elotte = [0] * (lada_db + 1)
-for i in range(lada_db):
-    if ladak[i] == 'A':
-        alma_elotte[i + 1] = alma_elotte[i] + 1
-    else:
-        alma_elotte[i + 1] = alma_elotte[i]
+    legkisebb_novekedes = 10**9
+    valasz_allomas = -1
 
-korte_utana = [0] * (lada_db + 1)
-for i in range(lada_db - 1, -1, -1):
-    if ladak[i] == 'K':
-        korte_utana[i] = korte_utana[i + 1] + 1
-    else:
-        korte_utana[i] = korte_utana[i + 1]
+    for allomas in range(allomasok_szama + 1):
+        leszallo, felszallo = map(int, input().strip().split())
 
-max_ladak = 0
-for valaszto_hely in range(lada_db + 1):
-    alma_db = alma_elotte[valaszto_hely]
-    korte_db = korte_utana[valaszto_hely]
-    rakott = min(alma_db, korte_db) * 2
-    if rakott &gt; max_ladak:
-        max_ladak = rakott
+        novekedes = felszallo-leszallo
 
-print(max_ladak)</code></pre>
+        if novekedes >= 1:
+            if novekedes < legkisebb_novekedes:
+                legkisebb_novekedes = novekedes
+                valasz_allomas = allomas
+    print(valasz_allomas))</code></pre>
 
     <h3>Mit csinál a program?</h3>
     <ol>
-        <li>Beolvassa a ládák sorát, ahol A egy almás ládát, K egy körtés ládát jelent.</li>
-        <li>Előre kiszámolja, hogy az egyes pozíciókig hány almás láda van összesen.</li>
-        <li>Visszafelé kiszámolja, hogy az egyes pozícióktól jobbra hány körtés láda van.</li>
-        <li>Minden lehetséges választóvonalnál megnézi, hogy ott legfeljebb hány A-t és hány K-t vehetünk fel úgy, hogy előbb az almák jönnek, utána a körték.</li>
-        <li>A válasz a maximális felpakolható ládaszám.</li>
+        <li>Beolvassa az állomások számát, majd minden állomásnál a felszállók és leszállók számát.</li>
+        <li>Minden állomásra kiszámolja, mennyivel nőtt az utasszám.</li>
+        <li>Csak azokat az állomásokat vizsgálja, ahol legalább 1 fővel nőtt az utasszám.</li>
+        <li>A növekedések közül megkeresi a legkisebbet (szélsőérték-keresés).</li>
+        <li>Ha több állomásnál ugyanannyi a növekedés, a legkisebb sorszámút választja.</li>
+        <li>A kiírja annak az állomásnak a sorszámát, ahol a legkisebb pozitív utasszám-növekedés történt.</li>
     </ol>
 </section>
 
