@@ -172,14 +172,17 @@ Kimenet
     <img src="fesztival.png" alt="Fesztivál feladat ábrája">
 
     <h3>Python program</h3>
-    <pre><code>fesztival_db = int(input())
+    <pre><code>
+    def masodik_elem(fesztival):
+        return fesztival[1]
+    fesztival_db = int(input())
 fesztivalok = []
 
 for i in range(fesztival_db):
     elso_nap, utolso_nap, bevetel = map(int, input().split())
     fesztivalok.append((elso_nap, utolso_nap, bevetel, i + 1))
 
-fesztivalok = sorted(fesztivalok, key=lambda x: x[1])
+fesztivalok = sorted(fesztivalok, key=masodik_elem)
 
 utolso_nem_utkozo = []
 for i in range(fesztival_db):
