@@ -354,22 +354,23 @@ Kimenet
 
     <h3>Python program</h3>
     <pre><code>def vonat():
-    allomasok_szama = int(input().strip())
+    n = int(input().strip())
 
-    legkisebb_novekedes = 800
+    legkisebb_novekedes = 10**9
     valasz_allomas = -1
 
-    for allomas in range(allomasok_szama + 1):
-        leszallo, felszallo = map(int, input().strip().split())
+    for allomas in range(1, n + 1):   # 1..N
+        leszallo, felszallo = map(int, input().split())
+        novekedes = felszallo - leszallo
 
-        novekedes = felszallo-leszallo
+        if 1 <= novekedes < legkisebb_novekedes:
+            legkisebb_novekedes = novekedes
+            valasz_allomas = allomas
 
-        if novekedes >= 1:
-            if novekedes < legkisebb_novekedes:
-                legkisebb_novekedes = novekedes
-                valasz_allomas = allomas
     print(valasz_allomas)
-                             </code></pre>
+
+vonat()
+</pre>
 
     <h3>Mit csinál a program?</h3>
     <ol>
