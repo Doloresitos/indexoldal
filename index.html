@@ -172,47 +172,53 @@ Kimenet
     <img src="fesztival.png" alt="Fesztivál feladat ábrája">
 
     <h3>Python program</h3>
-    <pre><code>def utolso_nap_szerint(fesztival):
-    return fesztival[1]
-        
-fesztival_db = int(input())
-fesztivalok = []
+    <pre><code>import bisect
 
-for i in range(fesztival_db):
-    elso_nap, utolso_nap, bevetel = map(int, input().split())
-    fesztivalok.append((elso_nap, utolso_nap, bevetel, i + 1))
+def utolso_nap_szerint(f):
+    return f[1]
 
-fesztivalok = sorted(fesztivalok, key=utolso_nap_szerint)
+def main():
+    fesztival_db = int(input())
+    fesztivalok = []
 
-utolso_nem_utkozo = []
-for i in range(fesztival_db):
-    elso_nap_i, utolso_nap_i, bevetel_i, sorszam_i = fesztivalok[i]
-    j = i - 1
-    while j &gt;= 0:
-        elso_nap_j, utolso_nap_j, bevetel_j, sorszam_j = fesztivalok[j]
-        if utolso_nap_j &lt; elso_nap_i:
-            break
-        j -= 1
-    utolso_nem_utkozo.append(j)
+    for i in range(fesztival_db):
+        e, u, b = map(int, input().split())
+        fesztivalok.append((e, u, b, i+1))
 
-max_bevetel = [0] * (fesztival_db + 1)
-valasztott_fesztivalok = [[] for _ in range(fesztival_db + 1)]
+    fesztivalok.sort(key=utolso_nap_szerint)
 
-for i in range(1, fesztival_db + 1):
-    elso_nap, utolso_nap, bevetel, sorszam = fesztivalok[i - 1]
-    kihagyott_bevetel = max_bevetel[i - 1]
-    ha_beszamoljuk_index = utolso_nem_utkozo[i - 1] + 1
-    ha_beszamoljuk_bevetel = max_bevetel[ha_beszamoljuk_index] + bevetel
+    veg_napok = [f[1] for f in fesztivalok]
 
-    if kihagyott_bevetel &gt; ha_beszamoljuk_bevetel:
-        max_bevetel[i] = kihagyott_bevetel
-        valasztott_fesztivalok[i] = valasztott_fesztivalok[i - 1][:]
-    else:
-        max_bevetel[i] = ha_beszamoljuk_bevetel
-        valasztott_fesztivalok[i] = valasztott_fesztivalok[ha_beszamoljuk_index][:] + [sorszam]
+    # utolsó nem ütköző fesztivál bináris kereséssel
+    utolso_nem_utkozo = []
+    for i in range(fesztival_db):
+        elso = fesztivalok[i][0]
+        j = bisect.bisect_right(veg_napok, elso - 1) - 1
+        utolso_nem_utkozo.append(j)
 
-print(max_bevetel[fesztival_db])
-print(len(valasztott_fesztivalok[fesztival_db]), *valasztott_fesztivalok[fesztival_db])</code></pre>
+    # DP
+    max_b = [0] * (fesztival_db + 1)
+    val = [[] for _ in range(fesztival_db + 1)]
+
+    for i in range(1, fesztival_db + 1):
+        e, u, b, sorsz = fesztivalok[i-1]
+
+        kihagy = max_b[i-1]
+
+        j = utolso_nem_utkozo[i-1] + 1
+        besz = max_b[j] + b
+
+        if kihagy > besz:
+            max_b[i] = kihagy
+            val[i] = val[i-1][:]
+        else:
+            max_b[i] = besz
+            val[i] = val[j][:] + [sorsz]
+
+    print(max_b[fesztival_db])
+    print(len(val[fesztival_db]), *val[fesztival_db])
+
+main()</code></pre>
 
     <h3>Mit csinál a program?</h3>
     <ol>
@@ -266,7 +272,6 @@ Kimenet
     <pre><code>def bejar(csucs, melyseg):
 
     generacio_db[melyseg] += 1
-
     for gyerek in gyerekek[csucs]:
         bejar(gyerek, melyseg + 1)
 
